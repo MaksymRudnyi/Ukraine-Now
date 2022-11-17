@@ -7,11 +7,11 @@ import { global } from './global';
 // https://github.com/chakra-ui/chakra-ui/tree/main/packages/components/theme/src
 
 const breakpoints = {
-  'base': '0',
-  'sm': '576px',
-  'md': '768px',
-  'lg': '992px',
-  'xl': '1200px',
+  base: '0',
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
   '2xl': '1400px',
 };
 
