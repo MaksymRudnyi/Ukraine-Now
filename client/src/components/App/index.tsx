@@ -1,9 +1,7 @@
-import { ChakraProvider } from '@chakra-ui/react';
-import theme from '../../theme';
-
 import { Box } from '@chakra-ui/react';
-
+import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
+import theme from '../../theme';
 
 function Index() {
   return (
