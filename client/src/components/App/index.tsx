@@ -10,7 +10,7 @@ function Index() {
         backgroundColor={['red', 'blue', 'green', 'yellow', 'pink']}
         className="App"
       >
-        app
+        app 2
       </Box>
     </ChakraProvider>
   );
