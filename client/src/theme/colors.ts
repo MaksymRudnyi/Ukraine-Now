@@ -10,5 +10,5 @@ export const colors = {
   white: {
     50: '#F4F6F6',
     900: '#FFFFFF',
-  }
+  },
 };
