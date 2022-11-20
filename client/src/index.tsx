@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import '@fontsource/roboto';
 import App from './components/App';
+import './i18n/config';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
