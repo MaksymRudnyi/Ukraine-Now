@@ -4,7 +4,6 @@
     "react",
     "^(?!react$)\\w+$",
     "<THIRD_PARTY_MODULES>",
-    "^src/assets(.*)$",
     "^src/components(.*)$",
     "^src/constants(.*)$",
     "^src/hooks(.*)$",
@@ -14,6 +13,7 @@
     "^src/store(.*)$",
     "^src/types(.*)$",
     "^src/utils(.*)$",
+    "^src/assets(.*)$",
     "^[./]"
   ],
   "importOrderSortSpecifiers": true,

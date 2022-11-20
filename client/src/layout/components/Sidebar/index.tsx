@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
 import { Logo, Nav } from '..';
+import bg from '../../../assets/i/bg.jpg';
 import store from '../../../store';
 
 export const Sidebar = observer(() => {
@@ -21,7 +22,8 @@ export const Sidebar = observer(() => {
         overflow={'hidden'}
         position={'absolute'}
         transition={'all .2s'}
-        backgroundColor={'lightblue'}
+        backgroundImage={'linear-gradient(to right, #141e30, #243b55)'}
+        color={'white'}
         transform={
           isMobileNavigationOpen
             ? 'translateX(0)'
@@ -36,7 +38,20 @@ export const Sidebar = observer(() => {
           w: '280px',
         }}
       >
-        <Nav />
+        <Box position={'relative'} zIndex={10}>
+          <Nav />
+        </Box>
+
+        <Box
+          bg={`url(${bg})`}
+          opacity={0.06}
+          position={'absolute'}
+          zIndex={9}
+          top={0}
+          left={0}
+          w={'100%'}
+          h={'100%'}
+        />
       </Box>
       <Box
         className={'sidebar-overlay'}

@@ -11,8 +11,8 @@ export const Header = () => (
     position={'relative'}
     zIndex={10}
     transition={'all .2s'}
-    backgroundImage={
-      'linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%)'
+    bg={
+      'linear-gradient(90deg, rgba(224,247,255,1) 0%, rgba(222,221,255,1) 100%);'
     }
   >
     <Logo />
