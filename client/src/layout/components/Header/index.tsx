@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import { Logo } from '..';
+import { Language, Logo } from '..';
 
 export const Header = () => (
   <Box
@@ -16,5 +16,6 @@ export const Header = () => (
     }
   >
     <Logo />
+    <Language />
   </Box>
 );

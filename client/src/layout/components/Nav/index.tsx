@@ -1,12 +1,4 @@
 import { Box } from '@chakra-ui/react';
-import MetisMenu from 'react-metismenu';
-import {
-  ChartsNav,
-  ComponentsNav,
-  FormsNav,
-  MainNav,
-  WidgetsNav,
-} from './items';
 
 export const Nav = () => {
   return (
