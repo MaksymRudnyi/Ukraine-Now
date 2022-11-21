@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
-import { Logo, Nav } from '..';
+import { Language, Nav } from '..';
 import bg from '../../../assets/i/bg.jpg';
 import store from '../../../store';
 
@@ -11,11 +11,13 @@ export const Sidebar = observer(() => {
     <>
       <Box
         className={'sidebar'}
-        w={
-          isMobileNavigationOpen
-            ? ['280px', '280px', '280px', '80px', '80px']
-            : ['280px', '280px', '280px', '80px', '280px']
-        }
+        w={[
+          '280px',
+          '280px',
+          '280px',
+          '80px',
+          isMobileNavigationOpen ? '80px' : '280px',
+        ]}
         h={'100vh'}
         display={'flex'}
         zIndex={11}
@@ -40,6 +42,7 @@ export const Sidebar = observer(() => {
       >
         <Box position={'relative'} zIndex={10}>
           <Nav />
+          <Language />
         </Box>
 
         <Box

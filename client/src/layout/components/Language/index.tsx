@@ -1,14 +1,32 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Button, Image } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
+import UkraineFlag from '../../../assets/i/flags/ukraine.svg';
+import UnitedKingdomFlag from '../../../assets/i/flags/united-kingdom.svg';
+import { LOCALS } from '../../../constants';
 import store from '../../../store';
 
 export const Language = observer(() => {
   const { locale, setLocale } = store.UI;
+
   return (
-    <Box>
-      {locale}
-      <button onClick={() => setLocale('en')}>en</button>
-      <button onClick={() => setLocale('uk-UA')}>uk-UA</button>
+    <Box alignContent={'end'} display={'flex'}>
+      <Button
+        disabled={locale === LOCALS.EN}
+        p={1}
+        variant="ghost"
+        onClick={() => setLocale(LOCALS.EN)}
+      >
+        <Image w={10} src={UnitedKingdomFlag} alt={'English language'} />
+      </Button>
+
+      <Button
+        disabled={locale === LOCALS.UK}
+        p={1}
+        variant="ghost"
+        onClick={() => setLocale(LOCALS.UK)}
+      >
+        <Image w={10} src={UkraineFlag} alt={'Ukrainian language'} />
+      </Button>
     </Box>
   );
 });
