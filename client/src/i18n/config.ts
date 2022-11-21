@@ -1,6 +1,5 @@
 import { initReactI18next } from 'react-i18next';
 import i18next from 'i18next';
-import { autorun } from 'mobx';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { LOCALS } from '../constants';
 import store from '../store';
@@ -26,9 +25,7 @@ i18next
       fallbackLng: LOCALS.EN,
     },
     () => {
-      autorun(() => {
-        store.UI.setLocale(i18next.language);
-      });
+      store.UI.setLocale(i18next.language);
     }
   );
 

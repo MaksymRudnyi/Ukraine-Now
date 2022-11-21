@@ -1,4 +1,5 @@
-import { makeAutoObservable } from 'mobx';
+import i18next from 'i18next';
+import { autorun, makeAutoObservable } from 'mobx';
 import UIStore from './UIStore';
 
 export class RootStore {
@@ -9,4 +10,12 @@ export class RootStore {
   UI = new UIStore();
 }
 
-export default new RootStore();
+const store = new RootStore();
+
+autorun(() => {
+  if (store.UI.locale) {
+    i18next.changeLanguage(store.UI.locale);
+  }
+});
+
+export default store;
