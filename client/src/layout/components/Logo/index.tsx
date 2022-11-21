@@ -15,7 +15,6 @@ export const Logo = observer(() => {
         w={['100%', '100%', '100%', '280px']}
         transition={'width .2s'}
         display={'flex'}
-        background={'orange'}
         justifyContent={'space-between'}
       >
         <Box order={[2, 2, 2, 1]}>

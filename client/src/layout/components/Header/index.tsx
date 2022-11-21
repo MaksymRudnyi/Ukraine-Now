@@ -8,6 +8,7 @@ export const Header = () => (
     display={'flex'}
     alignItems={'center'}
     alignContent={'center'}
+    justifyContent={'space-between'}
     position={'relative'}
     zIndex={10}
     transition={'all .2s'}
@@ -16,6 +17,8 @@ export const Header = () => (
     }
   >
     <Logo />
-    <Language />
+    <Box mr={3} display={['none', 'none', 'none', 'block']}>
+      <Language />
+    </Box>
   </Box>
 );
