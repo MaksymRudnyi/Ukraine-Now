@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
-import { Language, Nav } from '..';
+import { Language, LanguagePosition, Nav } from '..';
 import bg from '../../../assets/i/bg.jpg';
 import store from '../../../store';
 
@@ -10,6 +10,7 @@ export const Sidebar = observer(() => {
   return (
     <>
       <Box
+        role={'group'}
         className={'sidebar'}
         w={[
           '280px',
@@ -22,7 +23,8 @@ export const Sidebar = observer(() => {
         display={'flex'}
         zIndex={11}
         overflow={'hidden'}
-        position={'absolute'}
+        position={'fixed'}
+        top={'60px'}
         transition={'all .2s'}
         backgroundImage={'linear-gradient(to right, #141e30, #243b55)'}
         color={'white'}
@@ -42,7 +44,9 @@ export const Sidebar = observer(() => {
       >
         <Box position={'relative'} zIndex={10}>
           <Nav />
-          <Language />
+          <Box p={4} w={'80px'}>
+            <Language position={LanguagePosition.SIDEBAR} />
+          </Box>
         </Box>
 
         <Box

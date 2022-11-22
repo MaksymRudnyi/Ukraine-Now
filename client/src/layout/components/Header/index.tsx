@@ -5,11 +5,14 @@ export const Header = () => (
   <Box
     className={'header'}
     h={'60px'}
+    w={'100%'}
     display={'flex'}
     alignItems={'center'}
     alignContent={'center'}
     justifyContent={'space-between'}
-    position={'relative'}
+    position={'fixed'}
+    top={0}
+    left={0}
     zIndex={10}
     transition={'all .2s'}
     bg={

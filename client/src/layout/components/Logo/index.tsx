@@ -1,6 +1,7 @@
 import { Box, Image } from '@chakra-ui/react';
 import Hamburger from 'hamburger-react';
 import { observer } from 'mobx-react-lite';
+import { Link } from 'react-router-dom';
 import logo from '../../../assets/i/logo.png';
 import store from '../../../store';
 
@@ -18,7 +19,9 @@ export const Logo = observer(() => {
         justifyContent={'space-between'}
       >
         <Box order={[2, 2, 2, 1]}>
-          <Image src={logo} alt={'Ukraine Now Logo'} h={'60px'} />
+          <Link to={''}>
+            <Image src={logo} alt={'Ukraine Now Logo'} h={'60px'} />
+          </Link>
         </Box>
         <Box
           order={[1, 1, 1, 2]}
