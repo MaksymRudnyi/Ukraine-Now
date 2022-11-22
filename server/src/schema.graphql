@@ -1,0 +1,7 @@
+type Query {
+  init: Init
+}
+
+type Init {
+  test: String
+}

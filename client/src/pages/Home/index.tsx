@@ -11,6 +11,7 @@ export const Home: FC = () => {
       className="App"
     >
       Home page
+      {process.env.REACT_APP_API_HOST}
       <hr />
       {t('title')}
     </Box>
