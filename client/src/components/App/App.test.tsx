@@ -1,6 +1,6 @@
+import Index from '.';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import Index from '.';
 
 test('renders learn react link', () => {
   render(<Index />);

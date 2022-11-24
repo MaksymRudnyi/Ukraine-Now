@@ -1,10 +1,10 @@
-import { Box, Button, Image } from '@chakra-ui/react';
-import { observer } from 'mobx-react-lite';
-import { FC } from 'react';
 import UkraineFlag from '../../../assets/i/flags/ukraine.svg';
 import UnitedKingdomFlag from '../../../assets/i/flags/united-kingdom.svg';
 import { LOCALS } from '../../../constants';
 import store from '../../../store';
+import { Box, Button, Image } from '@chakra-ui/react';
+import { observer } from 'mobx-react-lite';
+import { FC } from 'react';
 
 export enum LanguagePosition {
   HEADER,

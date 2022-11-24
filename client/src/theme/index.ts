@@ -1,7 +1,7 @@
-import { extendTheme } from '@chakra-ui/react';
 import { colors } from './colors';
 import { components } from './components';
 import { global } from './global';
+import { extendTheme } from '@chakra-ui/react';
 
 // Base Chakra theme:
 // https://github.com/chakra-ui/chakra-ui/tree/main/packages/components/theme/src

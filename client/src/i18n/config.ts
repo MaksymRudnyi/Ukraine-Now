@@ -1,10 +1,10 @@
-import { initReactI18next } from 'react-i18next';
-import i18next from 'i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 import { LOCALS } from '../constants';
 import store from '../store';
 import en from './en/index.json';
 import ua from './ua/index.json';
+import i18next from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import { initReactI18next } from 'react-i18next';
 
 export const resources = {
   [LOCALS.EN]: {

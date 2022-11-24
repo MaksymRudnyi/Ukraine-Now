@@ -1,5 +1,5 @@
-import { Box } from '@chakra-ui/react';
 import { Language, Logo } from '..';
+import { Box } from '@chakra-ui/react';
 
 export const Header = () => (
   <Box

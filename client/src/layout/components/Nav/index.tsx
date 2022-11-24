@@ -1,9 +1,9 @@
+import store from '../../../store';
+import { nav } from './items';
 import { Box, Text } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import store from '../../../store';
-import { nav } from './items';
 
 export const Nav = observer(() => {
   const { isMobileNavigationOpen } = store.UI;
