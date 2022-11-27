@@ -1,7 +1,7 @@
-import { ChakraProvider } from '@chakra-ui/react';
-import React from 'react';
 import { Router } from '..';
 import theme from '../../theme';
+import { ChakraProvider } from '@chakra-ui/react';
+import React from 'react';
 
 export const App = () => {
   return (

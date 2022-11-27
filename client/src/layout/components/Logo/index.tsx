@@ -1,9 +1,9 @@
+import logo from '../../../assets/i/logo.png';
+import store from '../../../store';
 import { Box, Image } from '@chakra-ui/react';
 import Hamburger from 'hamburger-react';
 import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/i/logo.png';
-import store from '../../../store';
 
 export const Logo = observer(() => {
   const { isMobileNavigationOpen, setIsMobileNavigationOpen } = store.UI;

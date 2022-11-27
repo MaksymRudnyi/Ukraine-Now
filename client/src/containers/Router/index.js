@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Layout } from '../../layout';
 import { About, Home, NotFound } from '../../pages';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 export const Router = () => (
   <BrowserRouter>

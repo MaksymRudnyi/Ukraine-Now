@@ -1,8 +1,8 @@
-import { Box } from '@chakra-ui/react';
-import { observer } from 'mobx-react-lite';
 import { Language, LanguagePosition, Nav } from '..';
 import bg from '../../../assets/i/bg.jpg';
 import store from '../../../store';
+import { Box } from '@chakra-ui/react';
+import { observer } from 'mobx-react-lite';
 
 export const Sidebar = observer(() => {
   const { isMobileNavigationOpen, setIsMobileNavigationOpen } = store.UI;

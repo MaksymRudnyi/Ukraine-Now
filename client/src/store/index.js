@@ -1,6 +1,6 @@
+import UIStore from './UIStore';
 import i18next from 'i18next';
 import { autorun, makeAutoObservable } from 'mobx';
-import UIStore from './UIStore';
 
 export class RootStore {
   constructor() {

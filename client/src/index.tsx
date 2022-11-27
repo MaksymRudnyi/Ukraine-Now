@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import '@fontsource/roboto';
 import { App } from './containers';
 import './i18n/config';
 import reportWebVitals from './reportWebVitals';
+import '@fontsource/roboto';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

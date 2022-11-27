@@ -1,8 +1,8 @@
+import store from '../store';
+import { Header, Sidebar } from './components';
 import { Box } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
 import { Outlet } from 'react-router-dom';
-import store from '../store';
-import { Header, Sidebar } from './components';
 
 export const Layout = observer(() => {
   const { isMobileNavigationOpen } = store.UI;
