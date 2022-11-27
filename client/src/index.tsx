@@ -1,4 +1,4 @@
-import App from './components/App';
+import { App } from './containers';
 import './i18n/config';
 import reportWebVitals from './reportWebVitals';
 import '@fontsource/roboto';

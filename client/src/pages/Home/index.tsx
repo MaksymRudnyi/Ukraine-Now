@@ -1,4 +1,5 @@
-import { Box } from '@chakra-ui/react';
+import { Card } from '../../components';
+import { Box, Grid, GridItem } from '@chakra-ui/react';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -6,14 +7,15 @@ export const Home: FC = () => {
   const { t } = useTranslation();
 
   return (
-    <Box
-      backgroundColor={['red', 'blue', 'green', 'yellow', 'pink']}
-      className="App"
+    <Grid
+      templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(5, 1fr)']}
+      gap={4}
     >
-      Home page
-      {process.env.REACT_APP_API_HOST}
-      <hr />
-      {t('title')}
-    </Box>
+      <GridItem colSpan={[2, 2, 3]} w="100%" h="10" bg="blue.500" />
+      <GridItem w="100%">
+        <Card />
+      </GridItem>
+      <GridItem w="100%" h="10" bg="blue.500" />
+    </Grid>
   );
 };
