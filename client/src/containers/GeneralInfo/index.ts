@@ -1,0 +1,1 @@
+export { GeneralInfoData } from './GeneralInfoData';

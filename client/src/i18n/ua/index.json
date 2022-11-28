@@ -5,8 +5,7 @@
     "about": "Про проєкт"
   },
   "title": "Привіт реакт using react-i18next з типами",
-  "description": {
-    "part1": "Демо приклад.",
-    "part2": "😉"
+  "general": {
+    "occupied_territory": "Occupied territory"
   }
 }

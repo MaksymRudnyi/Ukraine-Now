@@ -59,7 +59,7 @@ export const Nav = observer(() => {
             const Icon = link.icon;
 
             return (
-              <Link to={link.link}>
+              <Link to={link.link} key={link.link}>
                 <Text
                   h={10}
                   transition={
