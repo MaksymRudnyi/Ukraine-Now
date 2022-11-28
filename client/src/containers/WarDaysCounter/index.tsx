@@ -1,0 +1,1 @@
+export { WarDaysCounterView } from './WarDaysCounterView';

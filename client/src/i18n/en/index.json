@@ -5,8 +5,10 @@
     "about": "About"
   },
   "title": "Welcome to react using react-i18next fully type-safe",
-  "description": {
-    "part1": "This is a simple example.",
-    "part2": "😉"
+  "general": {
+    "occupied_territory": "Occupied territory",
+    "days_of_war": "Days of war",
+    "from_full_scale_invasion": "from full-scale invasion",
+    "from_crimea_occupation": "from Crimea occupation"
   }
 }
