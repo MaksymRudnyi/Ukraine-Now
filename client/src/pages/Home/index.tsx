@@ -1,4 +1,8 @@
-import { GeneralInfoData, OccupiedView } from '../../containers';
+import {
+  GeneralInfoData,
+  OccupiedView,
+  WarDaysCounterView,
+} from '../../containers';
 import { Grid, GridItem } from '@chakra-ui/react';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -21,7 +25,9 @@ export const Home: FC = () => {
           <GridItem w="100%">
             <OccupiedView occupied={occupied} />
           </GridItem>
-          <GridItem w="100%" h="10" bg="blue.500" />
+          <GridItem w="100%">
+            <WarDaysCounterView />
+          </GridItem>
         </Grid>
       )}
     </GeneralInfoData>

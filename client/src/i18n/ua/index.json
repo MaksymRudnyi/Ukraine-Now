@@ -6,6 +6,9 @@
   },
   "title": "Привіт реакт using react-i18next з типами",
   "general": {
-    "occupied_territory": "Occupied territory"
+    "occupied_territory": "Окупована територія",
+    "days_of_war": "Днів війни",
+    "from_full_scale_invasion": "з повномасштабного вторгнення",
+    "from_crimea_occupation": "з окупації Криму"
   }
 }
