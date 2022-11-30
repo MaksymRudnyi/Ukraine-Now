@@ -13,12 +13,12 @@ export const WarDaysCounterView = () => {
 
   const cards = [
     {
-      value: `${Math.floor(daysFromFullScale / (1000 * 3600 * 24))}`,
+      value: `${Math.ceil(daysFromFullScale / (1000 * 3600 * 24))}`,
       title: t('general.days_of_war'),
       helpText: t('general.from_full_scale_invasion'),
     },
     {
-      value: `${Math.floor(daysFromCrimea / (1000 * 3600 * 24))}`,
+      value: `${Math.ceil(daysFromCrimea / (1000 * 3600 * 24))}`,
       title: t('general.days_of_war'),
       helpText: t('general.from_crimea_occupation'),
     },
