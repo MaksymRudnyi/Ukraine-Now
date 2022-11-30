@@ -2,6 +2,7 @@ import {
   GeneralInfoData,
   OccupiedView,
   WarDaysCounterView,
+  Map,
 } from '../../containers';
 import { Grid, GridItem } from '@chakra-ui/react';
 import { FC } from 'react';
@@ -21,7 +22,9 @@ export const Home: FC = () => {
           ]}
           gap={4}
         >
-          <GridItem colSpan={[2, 2, 3]} w="100%" h="10" bg="blue.500" />
+          <GridItem colSpan={[2, 2, 3]} w="100%">
+            <Map />
+          </GridItem>
           <GridItem w="100%">
             <OccupiedView occupied={occupied} />
           </GridItem>
