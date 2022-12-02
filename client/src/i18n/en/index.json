@@ -39,5 +39,21 @@
     "Kiev": "Kyiv",
     "Mykolayiv": "Mykolaiv",
     "Vinnytsya": "Vinnytsia"
+  },
+  "ukraine_general_info": {
+    "capital": "Capital",
+    "capital_value": "Kyiv",
+    "official_language": "Official language",
+    "official_language_value": "Ukrainian",
+    "government": "Government",
+    "government_value": "Unitary semi-presidential republic",
+    "area": "Area",
+    "area_value": "233,062 sq mi",
+    "population": "Population",
+    "population_value": "41,167,336",
+    "currency": "Currency",
+    "currency_value": "Hryvnia (₴) (UAH)",
+    "independence": "Independence day",
+    "independence_value": "24 August 1991"
   }
 }

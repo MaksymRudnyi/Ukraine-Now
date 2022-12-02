@@ -39,5 +39,21 @@
     "Kiev": "Київ",
     "Mykolayiv": "Миколаїв",
     "Vinnytsya": "Вінниця"
+  },
+  "ukraine_general_info": {
+    "capital": "Столиця",
+    "capital_value": "Київ",
+    "official_language": "Офіційна мова",
+    "official_language_value": "українська",
+    "government": "Форма правління",
+    "government_value": "унітарна парламентсько-президентська республіка",
+    "area": "Площа",
+    "area_value": "603 700 км²",
+    "population": "Населення",
+    "population_value": "41 167 336",
+    "currency": "Валюта",
+    "currency_value": "Гривня (₴) (UAH)",
+    "independence": "День незалежності",
+    "independence_value": "24 серпня 1991"
   }
 }
