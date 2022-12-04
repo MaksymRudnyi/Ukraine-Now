@@ -9,6 +9,7 @@ export class CurrencyService {
   constructor(private readonly httpService: HttpService) {}
 
   getTodayExchange(): Observable<AxiosResponse<Currency[]>> {
+    console.log('run query ')
     return this.httpService.get('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json').pipe(
       map(resp => resp.data)
     )

@@ -2,7 +2,7 @@ extend type Query {
     currencyToday: [Currency]
 }
 
-type Currency {
+type Currency @cacheControl(maxAge: 720) {
     r030: Int
     txt: String
     rate: Float!

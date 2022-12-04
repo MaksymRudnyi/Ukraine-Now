@@ -7,6 +7,7 @@ export class CurrencyResolver {
     private currencyService: CurrencyService,
   ) {}
 
+
   @Query()
   currencyToday() {
     return this.currencyService.getTodayExchange()
