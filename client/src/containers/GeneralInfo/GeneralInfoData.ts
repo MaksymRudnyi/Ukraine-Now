@@ -13,13 +13,11 @@ export const GeneralInfoData: FC<GeneralInfoDataProps> = ({
   skipLoading,
   skipError,
 }) => {
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, error, data,  } = useQuery({
     queryKey: ['general'],
     queryFn: () =>
       axios.get('http://localhost:4000/general').then(({ data }) => data),
   });
-
-  console.log('---0', data);
 
   if (isLoading) {
     return 'loading';

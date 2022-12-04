@@ -1,0 +1,11 @@
+extend type Query {
+    currencyToday: [Currency]
+}
+
+type Currency {
+    r030: Int
+    txt: String
+    rate: Float!
+    cc: String!
+    exchangedate: String!
+}

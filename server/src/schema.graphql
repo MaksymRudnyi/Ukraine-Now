@@ -1,0 +1,17 @@
+directive @cacheControl(
+    maxAge: Int,
+    scope: CacheControlScope
+) on OBJECT | FIELD | FIELD_DEFINITION
+
+enum CacheControlScope {
+    PUBLIC
+    PRIVATE
+}
+
+type Query {
+    _: String
+}
+
+type Mutation {
+    _: String
+}

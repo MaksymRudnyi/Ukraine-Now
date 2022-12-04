@@ -1,4 +1,5 @@
 import { BorderBox } from '../../components';
+import { CurrencyToday} from "..";
 import { TableContainer, Table, Tr, Td, Tbody } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
@@ -32,7 +33,10 @@ export const UkraineGeneralInfo = () => {
             </Tr>
             <Tr>
               <Td>{t('ukraine_general_info.currency')}</Td>
-              <Td>{t('ukraine_general_info.currency_value')}</Td>
+              <Td>
+                {t('ukraine_general_info.currency_value')}
+                <CurrencyToday/>
+              </Td>
             </Tr>
             <Tr>
               <Td>{t('ukraine_general_info.independence')}</Td>
