@@ -12,6 +12,6 @@ import { CurrencyResolver } from './currency.resolver'
   providers: [
     CurrencyService,
     CurrencyResolver
-  ],
+  ]
 })
 export class CurrencyModule {}
