@@ -9,6 +9,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { FC, ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type ModalWindowProps = {
   isOpen: boolean;
@@ -29,6 +30,8 @@ export const ModalWindow: FC<ModalWindowProps> = ({
   onSecondButtonClick,
   secondButtonTitle,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={'6xl'}>
       <ModalOverlay />
@@ -39,7 +42,7 @@ export const ModalWindow: FC<ModalWindowProps> = ({
 
         <ModalFooter>
           <Button colorScheme="blue" mr={3} onClick={onClose}>
-            Close
+            {t('modal_window.close')}
           </Button>
           {onSecondButtonClick ? (
             <Button variant="ghost">{secondButtonTitle}</Button>

@@ -5,6 +5,22 @@
     "about": "Про проєкт"
   },
   "title": "Привіт реакт using react-i18next з типами",
+  "modal_window": {
+    "close": "Закрити"
+  },
+  "charts": {
+    "loading": "Завантаження...",
+    "months": "Січень.Лютий.Березень.Квітень.Травень.Червень.Липень.Серпень.Вересень.Жовтень.Листопад.Грудень",
+    "weekdays": "Неділя.Понеділок.Вівторок.Середа.Четвер.Пʼятниця.Субота",
+    "short_months": "Січ.Лют.Бер.Кві.Тра.Чер.Лип.Серп.Вер.Жов.Лист.Гру",
+    "range_selector_from": "З",
+    "range_selector_to": "До",
+    "range_selector_zoom": "Крапка",
+    "downloadPNG": "Завантажити PNG",
+    "downloadJPEG": "Завантажити JPEG",
+    "downloadPDF": "Завантажити PDF",
+    "downloadSVG": "Завантажити SVG"
+  },
   "general": {
     "occupied_territory": "Окупована територія",
     "days_of_war": "Днів війни",
@@ -55,5 +71,11 @@
     "currency_value": "Гривня (₴) (UAH)",
     "independence": "День незалежності",
     "independence_value": "24 серпня 1991"
+  },
+  "currency": {
+    "uah": "грн.",
+    "official_course": "Офіційний курс гривні щодо {{currency}}",
+    "x_axios_name": "{{currency}} (за 1 одиницю)",
+    "source": "Джерело: <a href='https://bank.gov.ua' target='_blank'>Національний Банк України</a>"
   }
 }

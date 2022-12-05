@@ -1,11 +1,9 @@
-import { Loader, ModalWindow } from '../../../components';
 import { GetCurrencyByDates_currencyByDates } from './__generated__/GetCurrencyByDates';
-import { Box, useDisclosure } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highmaps';
-import { FC, useState } from 'react';
-
-const CURRENCY_TO_SHOW = ['USD', 'EUR'];
+import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type CurrencyByDatesViewProps = {
   currencyByDates: GetCurrencyByDates_currencyByDates[];
@@ -14,40 +12,32 @@ type CurrencyByDatesViewProps = {
 export const CurrencyByDatesView: FC<CurrencyByDatesViewProps> = ({
   currencyByDates,
 }) => {
-  console.log('currencyByDates: ', currencyByDates);
+  const { t } = useTranslation();
+  const { txt } = currencyByDates[0];
+
   const config = {
     title: {
-      text: 'U.S Solar Employment Growth by Job Category, 2010-2020',
+      text: t('currency.official_course', { currency: txt }),
     },
 
     subtitle: {
-      text: 'Source: <a href="https://irecusa.org/programs/solar-jobs-census/" target="_blank">IREC</a>',
+      text: t('currency.source'),
     },
 
     yAxis: {
       title: {
-        text: 'Number of Employees',
+        text: t('currency.uah'),
       },
     },
 
     xAxis: {
-      accessibility: {
-        rangeDescription: 'Range: 2010 to 2020',
-      },
       type: 'datetime',
       labels: {
         formatter: function () {
           // @ts-ignore
-          // console.log('---', this.value)
           return Highcharts.dateFormat('%a %d %b', this.value);
         },
       },
-    },
-
-    legend: {
-      layout: 'vertical',
-      align: 'right',
-      verticalAlign: 'middle',
     },
 
     plotOptions: {
@@ -61,10 +51,10 @@ export const CurrencyByDatesView: FC<CurrencyByDatesViewProps> = ({
     tooltip: {
       formatter: function () {
         return (
-          'The value for <b>' +
+          '<b>' +
           // @ts-ignore
           Highcharts.dateFormat('%a %d %b', this.x) +
-          '</b> is <b>' +
+          '</b> - <b>' +
           // @ts-ignore
           this.y +
           '</b>'
@@ -74,7 +64,7 @@ export const CurrencyByDatesView: FC<CurrencyByDatesViewProps> = ({
 
     series: [
       {
-        name: 'Installation & Developers',
+        name: t('currency.x_axios_name', { currency: txt }),
         data: currencyByDates.map((item) => {
           const [day, month, year] = item.exchangedate.split('.');
           return { y: item.rate, x: new Date(`${year}-${month}-${day}`) };
@@ -99,5 +89,9 @@ export const CurrencyByDatesView: FC<CurrencyByDatesViewProps> = ({
       ],
     },
   };
-  return <HighchartsReact highcharts={Highcharts} options={config} />;
+  return (
+    <Box sx={{ '.highcharts-credits': { display: 'none' } }}>
+      <HighchartsReact highcharts={Highcharts} options={config} />
+    </Box>
+  );
 };
