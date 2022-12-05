@@ -60,11 +60,12 @@ export const CurrencyByDatesView: FC<CurrencyByDatesViewProps> = ({
 
     tooltip: {
       formatter: function () {
-        // @ts-ignore
         return (
           'The value for <b>' +
+          // @ts-ignore
           Highcharts.dateFormat('%a %d %b', this.x) +
           '</b> is <b>' +
+          // @ts-ignore
           this.y +
           '</b>'
         );
