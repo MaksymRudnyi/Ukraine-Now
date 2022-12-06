@@ -1,0 +1,21 @@
+extend type Query {
+  currencyToday: [Currency]
+  currencyByDates(
+    startDate: String
+    endDate: String
+    valcode: String
+  ): [Currency]
+}
+
+type Currency @cacheControl(maxAge: 720) {
+  r030: Int
+  txt: String
+  rate: Float!
+  cc: String!
+  exchangedate: String!
+  enname: String
+  units: Int
+  rate_per_unit: Float
+  group: String
+  calcdate: String
+}

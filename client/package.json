@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.7.1",
     "@chakra-ui/icons": "^2.0.12",
     "@chakra-ui/react": "^2.4.1",
     "@emotion/react": "^11.10.5",
@@ -18,6 +19,7 @@
     "@types/react-dom": "^18.0.9",
     "axios": "^1.2.0",
     "framer-motion": "^7.6.7",
+    "graphql": "15.5.3",
     "hamburger-react": "^2.5.0",
     "highcharts": "^10.3.2",
     "highcharts-react-official": "^3.1.0",
@@ -42,7 +44,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "scriptname": "cmd"
+    "scriptname": "cmd",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "gen:types": "apollo client:codegen --target typescript --includes **/queries.tsx --excludes **/__generated__ --endpoint=http://localhost:4000/graphql"
   },
   "eslintConfig": {
     "extends": [
@@ -63,6 +67,14 @@
     ]
   },
   "devDependencies": {
-    "prettier-plugin-organize-imports": "^3.2.0"
+    "@graphql-codegen/cli": "2.15.0",
+    "@graphql-codegen/client-preset": "1.2.1",
+    "@types/graphql": "^14.5.0",
+    "apollo": "^2.34.0",
+    "prettier-plugin-organize-imports": "^3.2.0",
+    "@graphql-codegen/introspection": "2.2.1"
+  },
+  "resolutions": {
+    "graphql": "15.5.3"
   }
 }
