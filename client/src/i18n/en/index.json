@@ -5,6 +5,22 @@
     "about": "About"
   },
   "title": "Welcome to react using react-i18next fully type-safe",
+  "modal_window": {
+    "close": "Close"
+  },
+  "charts": {
+    "loading": "Loading...",
+    "months": "January.February.March.April.May.June.July.August.September.October.November.December",
+    "weekdays": "Sunday.Monday.Tuesday.Wednesday.Thursday.Friday.Saturday",
+    "short_months": "Jan.Feb.Mar.Apr.May.Jun.Jul.Aug.Sep.Oct.Nov.Dec",
+    "range_selector_from": "From",
+    "range_selector_to": "To",
+    "range_selector_zoom": "Point",
+    "downloadPNG": "Download PNG",
+    "downloadJPEG": "Download JPEG",
+    "downloadPDF": "Download PDF",
+    "downloadSVG": "Download SVG"
+  },
   "general": {
     "occupied_territory": "Occupied territory",
     "days_of_war": "Days of war",
@@ -55,5 +71,11 @@
     "currency_value": "Hryvnia (₴) (UAH)",
     "independence": "Independence day",
     "independence_value": "24 August 1991"
+  },
+  "currency": {
+    "uah": "UAH",
+    "official_course": "Official hrivnya exchange rates to {{currency}}",
+    "x_axios_name": "{{currency}} (per 1 unit)",
+    "source": "Source: <a href='https://bank.gov.ua/en' target='_blank'>National Bank of Ukraine</a>"
   }
 }

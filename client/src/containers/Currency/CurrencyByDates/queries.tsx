@@ -16,6 +16,7 @@ export const GET_CURRENCY_BY_DATES = gql`
       txt
       r030
       rate
+      enname
     }
   }
 `;

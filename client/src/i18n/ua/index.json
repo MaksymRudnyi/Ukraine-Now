@@ -73,7 +73,7 @@
     "independence_value": "24 серпня 1991"
   },
   "currency": {
-    "uah": "грн.",
+    "uah": "ГРН",
     "official_course": "Офіційний курс гривні щодо {{currency}}",
     "x_axios_name": "{{currency}} (за 1 одиницю)",
     "source": "Джерело: <a href='https://bank.gov.ua' target='_blank'>Національний Банк України</a>"

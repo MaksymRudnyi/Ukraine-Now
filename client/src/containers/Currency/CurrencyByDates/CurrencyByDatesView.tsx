@@ -1,7 +1,10 @@
+import { LOCALS } from '../../../constants';
+import store from '../../../store';
 import { GetCurrencyByDates_currencyByDates } from './__generated__/GetCurrencyByDates';
 import { Box } from '@chakra-ui/react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highmaps';
+import { observer } from 'mobx-react-lite';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -9,89 +12,91 @@ type CurrencyByDatesViewProps = {
   currencyByDates: GetCurrencyByDates_currencyByDates[];
 };
 
-export const CurrencyByDatesView: FC<CurrencyByDatesViewProps> = ({
-  currencyByDates,
-}) => {
-  const { t } = useTranslation();
-  const { txt } = currencyByDates[0];
+export const CurrencyByDatesView: FC<CurrencyByDatesViewProps> = observer(
+  ({ currencyByDates }) => {
+    const { locale } = store.UI;
+    const { t } = useTranslation();
+    const { txt, enname } = currencyByDates[0];
+    const currencyName = locale === LOCALS.UK ? txt : enname;
 
-  const config = {
-    title: {
-      text: t('currency.official_course', { currency: txt }),
-    },
-
-    subtitle: {
-      text: t('currency.source'),
-    },
-
-    yAxis: {
+    const config = {
       title: {
-        text: t('currency.uah'),
+        text: t('currency.official_course', { currency: currencyName }),
       },
-    },
 
-    xAxis: {
-      type: 'datetime',
-      labels: {
+      subtitle: {
+        text: t('currency.source'),
+      },
+
+      yAxis: {
+        title: {
+          text: t('currency.uah'),
+        },
+      },
+
+      xAxis: {
+        type: 'datetime',
+        labels: {
+          formatter: function () {
+            // @ts-ignore
+            return Highcharts.dateFormat('%a %d %b', this.value);
+          },
+        },
+      },
+
+      plotOptions: {
+        series: {
+          label: {
+            connectorAllowed: false,
+          },
+        },
+      },
+
+      tooltip: {
         formatter: function () {
-          // @ts-ignore
-          return Highcharts.dateFormat('%a %d %b', this.value);
+          return (
+            '<b>' +
+            // @ts-ignore
+            Highcharts.dateFormat('%a %d %b', this.x) +
+            '</b> - <b>' +
+            // @ts-ignore
+            this.y +
+            '</b>'
+          );
         },
       },
-    },
 
-    plotOptions: {
-      series: {
-        label: {
-          connectorAllowed: false,
-        },
-      },
-    },
-
-    tooltip: {
-      formatter: function () {
-        return (
-          '<b>' +
-          // @ts-ignore
-          Highcharts.dateFormat('%a %d %b', this.x) +
-          '</b> - <b>' +
-          // @ts-ignore
-          this.y +
-          '</b>'
-        );
-      },
-    },
-
-    series: [
-      {
-        name: t('currency.x_axios_name', { currency: txt }),
-        data: currencyByDates.map((item) => {
-          const [day, month, year] = item.exchangedate.split('.');
-          return { y: item.rate, x: new Date(`${year}-${month}-${day}`) };
-        }),
-      },
-    ],
-
-    responsive: {
-      rules: [
+      series: [
         {
-          condition: {
-            maxWidth: 500,
-          },
-          chartOptions: {
-            legend: {
-              layout: 'horizontal',
-              align: 'center',
-              verticalAlign: 'bottom',
-            },
-          },
+          name: t('currency.x_axios_name', { currency: currencyName }),
+          data: currencyByDates.map((item) => {
+            const [day, month, year] = item.exchangedate.split('.');
+            return { y: item.rate, x: new Date(`${year}-${month}-${day}`) };
+          }),
         },
       ],
-    },
-  };
-  return (
-    <Box sx={{ '.highcharts-credits': { display: 'none' } }}>
-      <HighchartsReact highcharts={Highcharts} options={config} />
-    </Box>
-  );
-};
+
+      responsive: {
+        rules: [
+          {
+            condition: {
+              maxWidth: 500,
+            },
+            chartOptions: {
+              legend: {
+                layout: 'horizontal',
+                align: 'center',
+                verticalAlign: 'bottom',
+              },
+            },
+          },
+        ],
+      },
+    };
+    return (
+      <Box sx={{ '.highcharts-credits': { display: 'none' } }}>
+        <HighchartsReact highcharts={Highcharts} options={config} />
+      </Box>
+    );
+  }
+);
