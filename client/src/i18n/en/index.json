@@ -4,7 +4,20 @@
     "home": "Home",
     "about": "About"
   },
-  "title": "Welcome to react using react-i18next fully type-safe",
+  "helmet": {
+    "home": {
+      "title": "Ukraine NOW - the main dashboard statistics",
+      "description": "Ukraine statistics dashboard. See all the valuable metrics right NOW."
+    },
+    "about": {
+      "title": "Ukraine NOW - about the project",
+      "description": "About the project Ukraine NOW."
+    },
+    "404": {
+      "title": "Ukraine NOW - 404. Page not found",
+      "description": "Page not found"
+    }
+  },
   "modal_window": {
     "close": "Close"
   },

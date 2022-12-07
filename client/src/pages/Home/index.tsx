@@ -4,6 +4,7 @@ import {
   WarDaysCounterView,
   Map,
   UkraineGeneralInfo,
+  Helmet,
 } from '../../containers';
 import { Grid, GridItem } from '@chakra-ui/react';
 import { FC } from 'react';
@@ -14,6 +15,7 @@ export const Home: FC = () => {
 
   return (
     <>
+      <Helmet />
       <Grid
         templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(5, 1fr)']}
         gap={4}

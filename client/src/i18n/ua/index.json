@@ -4,7 +4,20 @@
     "home": "На головну",
     "about": "Про проєкт"
   },
-  "title": "Привіт реакт using react-i18next з типами",
+  "helmet": {
+    "home": {
+      "title": "Ukraine NOW - основна статистика України",
+      "description": "Статистика оновних метрик України."
+    },
+    "about": {
+      "title": "Ukraine NOW - про проєкт",
+      "description": "Про проєкт Ukraine NOW."
+    },
+    "404": {
+      "title": "Ukraine NOW - 404. Сторінку не знайдено",
+      "description": "Сторінку не знайдено"
+    }
+  },
   "modal_window": {
     "close": "Закрити"
   },

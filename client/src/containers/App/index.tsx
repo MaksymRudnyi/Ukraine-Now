@@ -5,6 +5,7 @@ import theme from '../../theme';
 import { ChakraProvider } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient();
 
@@ -12,12 +13,14 @@ export const App = () => {
   useHighchartsTranslations();
 
   return (
-    <ApolloProvider>
-      <QueryClientProvider client={queryClient}>
-        <ChakraProvider theme={theme}>
-          <Router />
-        </ChakraProvider>
-      </QueryClientProvider>
-    </ApolloProvider>
+    <HelmetProvider>
+      <ApolloProvider>
+        <QueryClientProvider client={queryClient}>
+          <ChakraProvider theme={theme}>
+            <Router />
+          </ChakraProvider>
+        </QueryClientProvider>
+      </ApolloProvider>
+    </HelmetProvider>
   );
 };
