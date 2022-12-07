@@ -6,3 +6,4 @@ export * from './WarDaysCounter';
 export * from './Map';
 export * from './UkraineGeneralInfo';
 export * from './Currency';
+export * from './Helmet';
