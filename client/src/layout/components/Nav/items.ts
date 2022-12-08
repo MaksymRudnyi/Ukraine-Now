@@ -1,4 +1,4 @@
-import { PhoneIcon, QuestionIcon } from '@chakra-ui/icons';
+import { FaHome, FaInfoCircle } from 'react-icons/fa';
 
 export const nav = [
   {
@@ -6,7 +6,7 @@ export const nav = [
     content: [
       {
         label: 'nav.home',
-        icon: PhoneIcon,
+        icon: FaHome,
         link: '/',
       },
     ],
@@ -16,7 +16,7 @@ export const nav = [
     content: [
       {
         label: 'nav.about',
-        icon: QuestionIcon,
+        icon: FaInfoCircle,
         link: 'about',
       },
     ],
