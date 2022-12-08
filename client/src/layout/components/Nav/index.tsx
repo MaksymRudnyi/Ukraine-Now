@@ -1,6 +1,6 @@
 import store from '../../../store';
 import { nav } from './items';
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, Icon } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -56,8 +56,6 @@ export const Nav = observer(() => {
             {t(menu.label)}
           </Text>
           {menu.content.map((link) => {
-            const Icon = link.icon;
-
             return (
               <Link to={link.link} key={link.link}>
                 <Text
@@ -77,6 +75,7 @@ export const Nav = observer(() => {
                   }}
                 >
                   <Icon
+                    as={link.icon}
                     mr={[
                       '10px',
                       '10px',
