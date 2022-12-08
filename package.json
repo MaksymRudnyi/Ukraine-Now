@@ -6,7 +6,10 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "scriptname": "cmd"
+    "scriptname": "cmd",
+    "start": "cd server && npm run start",
+    "build": "cd client && npm run build",
+    "install": "cd client && npm install --legacy-peer-deps && cd ../server && npm install"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
