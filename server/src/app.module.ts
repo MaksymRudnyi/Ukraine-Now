@@ -1,8 +1,8 @@
 import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import {GeneralModule} from "./modules/General/general.module";
-import { CurrencyModule} from "./modules/Currency/currency.module";
+import { GeneralModule } from './modules/General/general.module';
+import { CurrencyModule } from './modules/Currency/currency.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import responseCachePlugin from 'apollo-server-plugin-response-cache';
@@ -16,7 +16,10 @@ import { ApolloServerPluginCacheControl } from 'apollo-server-core/dist/plugin/c
       driver: ApolloDriver,
       typePaths: ['./src/**/*.graphql'],
       definitions: {
-        path: join(process.cwd(), 'src/graphql.schema.ts')
+        path:
+          process.env.NODE_ENV === 'development'
+            ? join(process.cwd(), 'src/graphql.schema.ts')
+            : '/tmp/src/graphql.schema.ts',
       },
       plugins: [
         ApolloServerPluginCacheControl({ defaultMaxAge: 5 }), // optional
@@ -25,8 +28,8 @@ import { ApolloServerPluginCacheControl } from 'apollo-server-core/dist/plugin/c
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', '..', 'client', 'build'),
-      exclude: ['/graphql*', '/api*']
-    })
+      exclude: ['/graphql*', '/api*'],
+    }),
   ],
   controllers: [],
   providers: [],

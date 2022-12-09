@@ -15,7 +15,7 @@ export const ApolloProvider: FC<ApolloProvider> = ({ config = {}, children }) =>
 
         return (
             new ApolloClient({
-                uri: '/graphql',
+                uri: 'graphql',
                 cache: new InMemoryCache(),
                 link: httpLink,
                 ...config

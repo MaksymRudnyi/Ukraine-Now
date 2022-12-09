@@ -18,8 +18,16 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell"
   },
+  "engines": {
+    "node": "16"
+  },
+  "main": "dist/main.js",
   "dependencies": {
     "@nestjs/apollo": "^10.1.6",
     "@nestjs/axios": "^1.0.0",
@@ -38,7 +46,9 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.7",
-    "ts-morph": "^17.0.1"
+    "ts-morph": "^17.0.1",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",

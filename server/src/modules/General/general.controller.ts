@@ -7,7 +7,8 @@ export class GeneralController {
 
   @Get()
   getOccupied() {
-    return ({
-        occupied: this.initService.getOccupied()}
-    )}
+    return {
+      occupied: this.initService.getOccupied(),
+    };
+  }
 }

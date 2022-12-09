@@ -16,7 +16,7 @@ export const GeneralInfoData: FC<GeneralInfoDataProps> = ({
   const { isLoading, error, data,  } = useQuery({
     queryKey: ['general'],
     queryFn: () =>
-      axios.get('http://localhost:4000/general').then(({ data }) => data),
+      axios.get(`${process.env.REACT_APP_API_HOST}/general`).then(({ data }) => data),
   });
 
   if (isLoading) {
