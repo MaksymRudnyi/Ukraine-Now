@@ -7,5 +7,6 @@ export class CurrencyController {
 
   @Get()
   todayExchange() {
-    return this.currencyService.getTodayExchange()}
+    return this.currencyService.getTodayExchange();
+  }
 }

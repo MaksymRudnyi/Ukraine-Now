@@ -3,9 +3,9 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class GeneralService {
   getOccupied() {
-    return ({
+    return {
       value: 15,
-      remoteIframeURL: 'https://deepstatemap.live/'
-    })
+      remoteIframeURL: 'https://deepstatemap.live/',
+    };
   }
 }
