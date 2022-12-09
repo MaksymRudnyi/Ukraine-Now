@@ -1,5 +1,4 @@
 import { join } from 'path';
-import os from 'os';
 import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { GeneralModule } from './modules/General/general.module';
