@@ -1,12 +1,12 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
-
+import { AppModule } from './app.module';
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
+import * as dotenv from 'dotenv';
 import * as express from 'express';
-import * as functions from 'firebase-functions';
-import { AppModule } from './app.module';
 import firebaseAdmin from 'firebase-admin';
+import * as functions from 'firebase-functions';
+
+dotenv.config();
 
 const expressServer = express();
 firebaseAdmin.initializeApp();
