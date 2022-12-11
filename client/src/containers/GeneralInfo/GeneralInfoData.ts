@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { FC, ReactElement } from 'react';
+import {getAppCheckToken} from "../../utils/firebase";
 
 type GeneralInfoDataProps = {
   skipLoading?: boolean;
@@ -15,8 +16,13 @@ export const GeneralInfoData: FC<GeneralInfoDataProps> = ({
 }) => {
   const { isLoading, error, data,  } = useQuery({
     queryKey: ['general'],
-    queryFn: () =>
-      axios.get(`${process.env.REACT_APP_API_HOST}/general`).then(({ data }) => data),
+    queryFn: async () => {
+      return axios.get(`${process.env.REACT_APP_API_HOST}/general`, {
+        headers: {
+          'X-Firebase-AppCheck': await getAppCheckToken()
+        }
+      }).then(({ data }) => data)
+    }
   });
 
   if (isLoading) {
