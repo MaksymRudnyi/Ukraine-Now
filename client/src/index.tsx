@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import '@fontsource/roboto';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './utils/firebase';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

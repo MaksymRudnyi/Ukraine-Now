@@ -1,8 +1,9 @@
 import { join } from 'path';
-import { Module } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { GeneralModule } from './modules/General/general.module';
 import { CurrencyModule } from './modules/Currency/currency.module';
+import { AppCheckMiddleware } from './middlewares/AppCheck';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import responseCachePlugin from 'apollo-server-plugin-response-cache';
@@ -34,4 +35,8 @@ import { ApolloServerPluginCacheControl } from 'apollo-server-core/dist/plugin/c
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer): any {
+    consumer.apply(AppCheckMiddleware).forRoutes('/graphql', '/general');
+  }
+}
