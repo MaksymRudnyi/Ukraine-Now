@@ -3,3 +3,4 @@ export const LOCALS = {
   EN: 'en',
   UK: 'uk-UA',
 };
+export const UKRAINE_ISO = "UKR"

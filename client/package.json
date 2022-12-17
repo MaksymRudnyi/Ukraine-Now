@@ -50,7 +50,7 @@
     "prepare": "husky install",
     "scriptname": "cmd",
     "codegen": "graphql-codegen --config codegen.ts",
-    "gen:types": "apollo client:codegen --target typescript --includes **/queries.tsx --excludes **/__generated__ --endpoint=http://localhost:4000/graphql"
+    "gen:types": "apollo client:codegen --target typescript --includes **/queries.tsx --excludes **/__generated__ --endpoint=http://127.0.0.1:5001/ukraine-now/us-central1/api/graphql"
   },
   "eslintConfig": {
     "extends": [

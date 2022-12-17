@@ -5,8 +5,9 @@ import {
   Map,
   UkraineGeneralInfo,
   Helmet,
+  Corruption
 } from '../../containers';
-import { Grid, GridItem } from '@chakra-ui/react';
+import { Grid, GridItem, Box } from '@chakra-ui/react';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -19,6 +20,7 @@ export const Home: FC = () => {
       <Grid
         templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(5, 1fr)']}
         gap={4}
+        mb={4}
       >
         <GridItem colSpan={[2, 2, 3]} w="100%">
           <Map />
@@ -38,6 +40,7 @@ export const Home: FC = () => {
               'repeat(2, 1fr)',
             ]}
             gap={4}
+            mb={4}
           >
             <GridItem w="100%">
               <OccupiedView occupied={occupied} />
@@ -48,6 +51,8 @@ export const Home: FC = () => {
           </Grid>
         )}
       </GeneralInfoData>
+
+      <Corruption/>
     </>
   );
 };

@@ -8,7 +8,7 @@
 // ====================================================
 
 export interface GetCurrencyForToday_currencyToday {
-  __typename: 'Currency';
+  __typename: "Currency";
   exchangedate: string;
   cc: string;
   txt: string | null;
