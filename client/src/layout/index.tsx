@@ -13,6 +13,7 @@ export const Layout = observer(() => {
       <Sidebar />
       <Box
         transition={'all .2s'}
+        bgColor={'gray.50'}
         p={4}
         mt={'60px'}
         paddingLeft={[

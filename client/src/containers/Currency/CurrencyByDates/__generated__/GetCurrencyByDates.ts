@@ -8,7 +8,7 @@
 // ====================================================
 
 export interface GetCurrencyByDates_currencyByDates {
-  __typename: 'Currency';
+  __typename: "Currency";
   exchangedate: string;
   cc: string;
   txt: string | null;

@@ -1,0 +1,14 @@
+extend type Query {
+  corruption: [Corruption]
+}
+
+type Corruption @cacheControl(maxAge: 12720) {
+  country: String
+  iso3: String!
+  region: String
+  year: Int!
+  rank: Int
+  score: Int
+  sources: Int
+  standardError: String
+}

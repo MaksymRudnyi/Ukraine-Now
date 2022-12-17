@@ -34,10 +34,4 @@ export const getAppCheckToken = async () => {
   }
 
   return appCheckTokenResponse.token;
-  // Include the App Check token with requests to your server.
-  // const apiResponse = await fetch('https://yourbackend.example.com/yourApiEndpoint', {
-  //   headers: {
-  //     'X-Firebase-AppCheck': appCheckTokenResponse.token,
-  //   }
-  // });
 };

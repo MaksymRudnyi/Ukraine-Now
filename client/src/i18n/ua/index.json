@@ -90,5 +90,10 @@
     "official_course": "Офіційний курс гривні щодо {{currency}}",
     "x_axios_name": "{{currency}} (за 1 одиницю)",
     "source": "Джерело: <a href='https://bank.gov.ua' target='_blank'>Національний Банк України</a>"
+  },
+  "corruption": {
+    "corruption_perceptions_index": "Індекс Сприйняття Корупції",
+    "score": "Оцінка",
+    "rank": "Позиція"
   }
 }
