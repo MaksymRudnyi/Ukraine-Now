@@ -13,5 +13,4 @@ export class CorruptionService {
       .get('https://www.transparency.org/api/latest/cpi')
       .pipe(map((resp) => resp.data));
   }
-
 }

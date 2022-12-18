@@ -10,8 +10,6 @@ export class AppCheckMiddleware implements NestMiddleware {
   async use(req, res: Response, next) {
     const token = req.headers['x-firebase-appcheck'];
 
-    console.log('process.env.NODE_ENV', process.env.NODE_ENV)
-
     if (process.env.NODE_ENV !== 'production') {
       next();
       return;
