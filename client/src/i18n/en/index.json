@@ -2,6 +2,7 @@
   "nav": {
     "general": "General",
     "home": "Home",
+    "corruption": "Сorruption",
     "about": "About"
   },
   "helmet": {
@@ -92,6 +93,7 @@
     "source": "Source: <a href='https://bank.gov.ua/en' target='_blank'>National Bank of Ukraine</a>"
   },
   "corruption": {
+    "country": "Ukraine",
     "corruption_perceptions_index": "Corruption Perception Index",
     "score": "Score",
     "rank": "Rank"

@@ -1,4 +1,4 @@
-import { Card, ModalWindow, Loader } from '../../components';
+import { Card, ModalWindow, Loader, Action } from '../../components';
 import { useDisclosure, Box } from '@chakra-ui/react';
 import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,9 +15,13 @@ export const OccupiedView = ({ occupied }) => {
 
   return (
     <>
-      <Box onClick={onOpen} cursor={'pointer'}>
+      <Box onClick={onOpen} cursor={'pointer'} height={'100%'}>
         <Card
-          value={`${occupied.value}%`}
+          value={
+            <Action>
+              <>{`${occupied.value}%`}</>
+            </Action>
+          }
           title={t('general.occupied_territory')}
         />
       </Box>

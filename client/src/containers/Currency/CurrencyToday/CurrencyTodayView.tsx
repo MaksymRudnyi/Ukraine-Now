@@ -1,5 +1,5 @@
 import { CurrencyByDates } from '..';
-import { Loader, ModalWindow, InternalLink } from '../../../components';
+import { Action, ModalWindow, InternalLink } from '../../../components';
 import { GetCurrencyForToday_currencyToday } from './__generated__/GetCurrencyForToday';
 import { Box, useDisclosure } from '@chakra-ui/react';
 import { FC, useState } from 'react';
@@ -36,15 +36,15 @@ export const CurrencyTodayView: FC<CurrencyTodayViewProps> = ({
 
   return (
     <div>
-      <Box>
-        <InternalLink onClick={() => setCurrency(USD.cc)}>
+      <Box mt={2}>
+        <Action onClick={() => setCurrency(USD.cc)}>
           <>USD/UAH: {USD.rate}</>
-        </InternalLink>
+        </Action>
       </Box>
-      <Box>
-        <InternalLink onClick={() => setCurrency(EUR.cc)}>
+      <Box mt={2}>
+        <Action onClick={() => setCurrency(EUR.cc)}>
           <>EUR/UAH: {EUR.rate}</>
-        </InternalLink>
+        </Action>
       </Box>
 
       <ModalWindow isOpen={!!currency} onClose={closeModal}>

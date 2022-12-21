@@ -1,3 +1,4 @@
+import { Paper } from '../../components';
 import {
   Stat,
   StatHelpText,
@@ -5,7 +6,6 @@ import {
   StatNumber,
   Box,
   StatGroup,
-  StatArrow,
 } from '@chakra-ui/react';
 import { FC } from 'react';
 
@@ -20,7 +20,7 @@ type CardGroupProps = {
 };
 
 export const CardGroup: FC<CardGroupProps> = ({ cards }) => (
-  <Box border={'1px solid'} borderColor={'gray.200'} borderRadius={10} p={2}>
+  <Paper p={2}>
     <StatGroup>
       {cards.map(({ title, value, helpText }) => (
         <Stat key={value}>
@@ -30,5 +30,5 @@ export const CardGroup: FC<CardGroupProps> = ({ cards }) => (
         </Stat>
       ))}
     </StatGroup>
-  </Box>
+  </Paper>
 );

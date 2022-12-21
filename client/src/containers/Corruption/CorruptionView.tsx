@@ -1,5 +1,5 @@
 import { CurrencyByDates, OccupiedView, WarDaysCounterView } from '..';
-import { Loader, ModalWindow, InternalLink, Card } from '../../components';
+import { Loader, ModalWindow, Action, Card } from '../../components';
 import { UKRAINE_ISO } from '../../constants';
 import { CorruptionGraph } from './Graph';
 import { CorruptionTable } from './Table';
@@ -53,7 +53,6 @@ export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
   }
 
   const onRowClick = (row: GetCorruption_corruption) => {
-    console.log('row: ', row);
     setCompareCountry(row.iso3 === compareCountry ? '' : row.iso3);
   };
 
@@ -63,11 +62,19 @@ export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
       gap={4}
     >
       <GridItem w="100%" onClick={() => setIsScoreActive(false)}>
-        <Box mb={4}>
-          <Card value={ukraineThisYear.rank} title={t('corruption.rank')} />
+        <Box mb={4} cursor={'pointer'}>
+          <Card
+            value={<Action>{`${ukraineThisYear.rank} / 180`}</Action>}
+            title={t('corruption.rank')}
+          />
         </Box>
 
-        <Card value={ukraineThisYear.score} title={t('corruption.score')} />
+        <Box cursor={'pointer'}>
+          <Card
+            value={<Action>{`${ukraineThisYear.score} / 100`}</Action>}
+            title={t('corruption.score')}
+          />
+        </Box>
       </GridItem>
 
       <GridItem colSpan={[1, 1, 2]} w="100%">
