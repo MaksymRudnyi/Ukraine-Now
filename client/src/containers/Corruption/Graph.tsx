@@ -1,6 +1,5 @@
-import { LOCALS } from '../../constants';
+import { Paper } from '../../components';
 import store from '../../store';
-import { GetCorruption_corruption } from './__generated__/GetCorruption';
 import { Box } from '@chakra-ui/react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highmaps';
@@ -11,15 +10,15 @@ import { useTranslation } from 'react-i18next';
 type SeriesType = {
   name: string;
   data: {
-    x: number,
-    y: number
-  }[]
-}
+    x: number;
+    y: number;
+  }[];
+};
 
 type CurruptionGraphProps = {
   title?: string | null;
   yAxis?: string | null;
-  series: SeriesType[]
+  series: SeriesType[];
 };
 
 export const CorruptionGraph: FC<CurruptionGraphProps> = observer(
@@ -35,8 +34,8 @@ export const CorruptionGraph: FC<CurruptionGraphProps> = observer(
       subtitle: {
         text: '',
         style: {
-          display: 'none'
-        }
+          display: 'none',
+        },
       },
 
       yAxis: {
@@ -50,14 +49,14 @@ export const CorruptionGraph: FC<CurruptionGraphProps> = observer(
           label: {
             connectorAllowed: false,
           },
-          pointStart: series[0].data[series[0].data.length - 1].x
+          pointStart: series[0].data[series[0].data.length - 1].x,
         },
       },
 
       tooltip: {
         formatter: function () {
           // @ts-ignore
-          return `${this.x}: <b>${this.y}</b>`
+          return `${this.x}: <b>${this.y}</b>`;
         },
       },
 
@@ -81,9 +80,9 @@ export const CorruptionGraph: FC<CurruptionGraphProps> = observer(
       },
     };
     return (
-      <Box sx={{ '.highcharts-credits': { display: 'none' } }}>
+      <Paper sx={{ '.highcharts-credits': { display: 'none' } }}>
         <HighchartsReact highcharts={Highcharts} options={config} />
-      </Box>
+      </Paper>
     );
   }
 );

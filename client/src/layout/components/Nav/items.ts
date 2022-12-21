@@ -1,4 +1,4 @@
-import { FaHome, FaInfoCircle } from 'react-icons/fa';
+import { FaHome, FaInfoCircle, FaDonate } from 'react-icons/fa';
 
 export const nav = [
   {
@@ -8,6 +8,11 @@ export const nav = [
         label: 'nav.home',
         icon: FaHome,
         link: '/',
+      },
+      {
+        label: 'nav.corruption',
+        icon: FaDonate,
+        link: '/#corruption',
       },
     ],
   },

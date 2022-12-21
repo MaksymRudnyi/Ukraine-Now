@@ -46,21 +46,18 @@ export const Table: FC<TableProps> = ({
   }, []);
 
   return (
-    <TableContainer>
-      <ChakraTable
-        variant="striped"
-        size={'sm'}
-        mt={'32px'}
-        display={'inline-block'}
-        overflow={'auto'}
-        sx={{ maxHeight: '368px' }}
-      >
+    <TableContainer overflowY={'auto'} maxH={'368px'} mt={'32px'}>
+      <ChakraTable variant="striped" size={'sm'} sx={{ tableLayout: 'fixed' }}>
         <Thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <Tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <Th key={header.id} colSpan={header.colSpan}>
+                  <Th
+                    key={header.id}
+                    colSpan={header.colSpan}
+                    width={header.getSize()}
+                  >
                     {header.isPlaceholder ? null : (
                       <Box
                         position={'absolute'}
@@ -103,6 +100,7 @@ export const Table: FC<TableProps> = ({
                   return (
                     <Td
                       key={cell.id}
+                      width={cell.column.getSize()}
                       bgColor={
                         selectedFn && selectedFn(row.original)
                           ? 'blue.100' + '!important'

@@ -1,3 +1,4 @@
+import { Paper } from '../../components';
 import UA from './mapData';
 import { Box } from '@chakra-ui/react';
 import HighchartsReact from 'highcharts-react-official';
@@ -98,12 +99,12 @@ export const Map = () => {
     ],
   };
   return (
-    <Box sx={{ '.highcharts-credits': { display: 'none' } }}>
+    <Paper sx={{ '.highcharts-credits': { display: 'none' } }}>
       <HighchartsReact
         constructorType={'mapChart'}
         highcharts={Highcharts}
         options={config}
       />
-    </Box>
+    </Paper>
   );
 };

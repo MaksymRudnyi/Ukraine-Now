@@ -2,6 +2,7 @@
   "nav": {
     "general": "Загальне",
     "home": "На головну",
+    "corruption": "Корупція",
     "about": "Про проєкт"
   },
   "helmet": {
@@ -52,7 +53,7 @@
     "Luhans'k": "Луганська",
     "Poltava": "Полтава",
     "Zaporizhzhya": "Запоріжжя",
-    "Sevastopol": "м. Севастопіль",
+    "Sevastopol": "м. Севастополь",
     "Crimea": "Крим",
     "Chernihiv": "Чернігів",
     "Rivne": "Рівне",
@@ -92,6 +93,7 @@
     "source": "Джерело: <a href='https://bank.gov.ua' target='_blank'>Національний Банк України</a>"
   },
   "corruption": {
+    "country": "Країна",
     "corruption_perceptions_index": "Індекс Сприйняття Корупції",
     "score": "Оцінка",
     "rank": "Позиція"
