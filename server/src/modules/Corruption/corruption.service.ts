@@ -9,7 +9,6 @@ export class CorruptionService {
   constructor(private readonly httpService: HttpService) {}
 
   getCorruptionData(): Observable<AxiosResponse<Corruption[]>> {
-    console.log('getting corruption')
     return this.httpService
       .get('https://www.transparency.org/api/latest/cpi')
       .pipe(map((resp) => resp.data));
