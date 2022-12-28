@@ -4,6 +4,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { GeneralModule } from './modules/General/general.module';
 import { CorruptionModule } from './modules/Corruption/corruption.module';
 import { CurrencyModule } from './modules/Currency/currency.module';
+import { WarModule } from './modules/War/war.module';
 import { AppCheckMiddleware } from './middlewares/AppCheck';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
@@ -15,6 +16,7 @@ import { ApolloServerPluginCacheControl } from 'apollo-server-core/dist/plugin/c
     GeneralModule,
     CurrencyModule,
     CorruptionModule,
+    WarModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       typePaths: ['./src/**/*.graphql'],
@@ -25,7 +27,7 @@ import { ApolloServerPluginCacheControl } from 'apollo-server-core/dist/plugin/c
             : '/tmp/src/graphql.schema.ts',
       },
       plugins: [
-        ApolloServerPluginCacheControl({ defaultMaxAge: 5 }), // optional
+        ApolloServerPluginCacheControl({ defaultMaxAge: 3600 }), // optional
         responseCachePlugin(),
       ],
     }),

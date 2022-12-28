@@ -7,5 +7,5 @@ export { ResponseError } from './ResponseError';
 export { QueryData } from './QueryData';
 export { InternalLink } from './InternalLink';
 export { Paper } from './Paper';
-export { Title } from './Title';
+export { Title, SubTitle } from './Title';
 export { Action } from './Action';

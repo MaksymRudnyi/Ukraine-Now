@@ -1,4 +1,4 @@
-import { CardGroup } from '../../components/CardGroup';
+import { CardGroup } from '../../../../components/CardGroup';
 import { useTranslation } from 'react-i18next';
 
 export const WarDaysCounterView = () => {

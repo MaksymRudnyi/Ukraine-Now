@@ -1,0 +1,28 @@
+extend type Query {
+  warLatest: War @cacheControl(maxAge: 3600)
+}
+
+type Stats {
+  personnel_units: Int
+  tanks: Int
+  armoured_fighting_vehicles: Int
+  artillery_systems: Int
+  mlrs: Int
+  aa_warfare_systems: Int
+  planes: Int
+  helicopters: Int
+  vehicles_fuel_tanks: Int
+  warships_cutters: Int
+  cruise_missiles: Int
+  uav_systems: Int
+  special_military_equip: Int
+  atgm_srbm_systems: Int
+}
+
+type War {
+  date: String!
+  day: Int!
+  resource: String
+  stats: Stats!
+  increase: Stats
+}

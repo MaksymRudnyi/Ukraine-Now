@@ -1,11 +1,10 @@
-import { CurrencyByDates, OccupiedView, WarDaysCounterView } from '..';
-import { Loader, ModalWindow, Action, Card } from '../../components';
+import { Action, Card } from '../../components';
 import { UKRAINE_ISO } from '../../constants';
 import { CorruptionGraph } from './Graph';
 import { CorruptionTable } from './Table';
 import { GetCorruption_corruption } from './__generated__/GetCorruption';
 import { SeriesType } from './interfaces';
-import { Box, Grid, GridItem, useDisclosure } from '@chakra-ui/react';
+import { Box, Grid, GridItem } from '@chakra-ui/react';
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -34,19 +33,17 @@ export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
     {
       name: 'Ukraine',
       data: ukraine.map((item) => ({
-        y: isScoreActive ? item.score : item.rank,
+        y: isScoreActive ? item.score! : item.rank!,
         x: item.year,
       })),
     },
   ];
 
   if (comparedCountry.length) {
-    console.log('comparedCountry: ', comparedCountry);
-
     series.push({
       name: comparedCountry[0].country!,
       data: comparedCountry.map((item) => ({
-        y: isScoreActive ? item.score : item.rank,
+        y: isScoreActive ? item.score! : item.rank!,
         x: item.year,
       })),
     });
@@ -60,10 +57,11 @@ export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
     <Grid
       templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']}
       gap={4}
+      mb={4}
     >
       <GridItem w="100%" onClick={() => setIsScoreActive(false)}>
         <Box mb={4} cursor={'pointer'}>
-          <Card
+          <Card // TODO calculate the total number of countires instead of 180
             value={<Action>{`${ukraineThisYear.rank} / 180`}</Action>}
             title={t('corruption.rank')}
           />

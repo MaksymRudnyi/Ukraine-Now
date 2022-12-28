@@ -11,3 +11,9 @@ export const Title: FC<TitleProps> = ({ children, id }) => (
     {children}
   </Heading>
 );
+
+export const SubTitle: FC<TitleProps> = ({ children, id }) => (
+  <Heading as="h3" size="md" mb={4} id={id}>
+    {children}
+  </Heading>
+);

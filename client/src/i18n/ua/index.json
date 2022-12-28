@@ -97,5 +97,23 @@
     "corruption_perceptions_index": "Індекс Сприйняття Корупції",
     "score": "Оцінка",
     "rank": "Позиція"
+  },
+  "war": {
+    "title": "Війна",
+    "sub_title": "Загальні втрати противника",
+    "personnel": "Особового складу",
+    "tanks": "Танків",
+    "armouredVehicles": "Бойових броньованих машин",
+    "artillery": "Артилерійських систем",
+    "mlrs": "РСЗВ",
+    "warfareSystems": "Засобів ППО",
+    "planes": "Літаків",
+    "helicopters": "Гелікоптерів",
+    "fuelTanks": "Цистерн з ПММ",
+    "warships": "Кораблів/Катерів",
+    "cruiseMissiles": "Крилатих ракет",
+    "uavSystems": "БПЛ",
+    "specialEquip": "Спец. техніки",
+    "atgmSrbmSystems": "Установок ОТРК/ТРК"
   }
 }

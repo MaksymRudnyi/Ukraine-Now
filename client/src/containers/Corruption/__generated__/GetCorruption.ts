@@ -10,8 +10,8 @@
 export interface GetCorruption_corruption {
   __typename: "Corruption";
   iso3: string;
-  rank: number;
-  score: number;
+  rank: number | null;
+  score: number | null;
   region: string | null;
   year: number;
   country: string | null;
