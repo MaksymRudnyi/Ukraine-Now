@@ -1,8 +1,8 @@
 extend type Query {
-  corruption: [Corruption]
+  corruption: [Corruption] @cacheControl(maxAge: 86400)
 }
 
-type Corruption @cacheControl(maxAge: 12720) {
+type Corruption {
   country: String
   iso3: String!
   region: String

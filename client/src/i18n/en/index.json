@@ -97,5 +97,23 @@
     "corruption_perceptions_index": "Corruption Perception Index",
     "score": "Score",
     "rank": "Rank"
+  },
+  "war": {
+    "title": "War",
+    "sub_title": "The total combat losses of the enemy",
+    "personnel": "Personnel units",
+    "tanks": "Tanks",
+    "armouredVehicles": "Armoured personal vehicle",
+    "artillery": "Artillery systems",
+    "mlrs": "MLRS",
+    "warfareSystems": "AA warfare systems",
+    "planes": "Aircraft",
+    "helicopters": "Helicopters",
+    "fuelTanks": "Vehicles and fuel tanks",
+    "warships": "Warships/Boats",
+    "cruiseMissiles": "Cruise missiles",
+    "uavSystems": "UAV operational-tactical level",
+    "specialEquip": "Special equipment",
+    "atgmSrbmSystems": "ATGM/SRBM systems"
   }
 }

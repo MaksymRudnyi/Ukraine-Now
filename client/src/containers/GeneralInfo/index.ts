@@ -1,1 +1,0 @@
-export { GeneralInfoData } from './GeneralInfoData';

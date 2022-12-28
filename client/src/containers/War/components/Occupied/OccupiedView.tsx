@@ -1,9 +1,9 @@
-import { Card, ModalWindow, Loader, Action } from '../../components';
+import { Card, ModalWindow, Loader, Action } from '../../../../components';
 import { useDisclosure, Box } from '@chakra-ui/react';
 import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export const OccupiedView = ({ occupied }) => {
+export const OccupiedView = () => {
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +19,7 @@ export const OccupiedView = ({ occupied }) => {
         <Card
           value={
             <Action>
-              <>{`${occupied.value}%`}</>
+              <>15%</>
             </Action>
           }
           title={t('general.occupied_territory')}
@@ -33,7 +33,7 @@ export const OccupiedView = ({ occupied }) => {
             <iframe
               width={'100%'}
               height={'100%'}
-              src={occupied.remoteIframeURL}
+              src="src/containers/War/components/Occupied/OccupiedView"
               onLoad={() => {
                 setIsLoading(false);
               }}
