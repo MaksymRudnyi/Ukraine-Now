@@ -48,6 +48,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "scriptname": "cmd",
@@ -98,5 +99,16 @@
   },
   "resolutions": {
     "graphql": "15.5.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts*"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 90,
+        "statements": 90
+      }
+    }
   }
 }
