@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "concurrently": "^7.6.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
     "prettier": "2.7.1"
@@ -7,9 +8,9 @@
   "scripts": {
     "prepare": "husky install",
     "scriptname": "cmd",
-    "start": "cd server && npm run start",
     "build": "cd client && npm run build",
-    "install": "cd client && npm install --legacy-peer-deps && cd ../server && npm install"
+    "install": "cd client && npm install --legacy-peer-deps && cd ../server && npm install",
+    "start": "concurrently \"cd client && yarn start\" \"cd server && yarn serve:watch\""
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
