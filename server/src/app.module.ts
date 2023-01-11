@@ -10,7 +10,10 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import responseCachePlugin from 'apollo-server-plugin-response-cache';
 import { ApolloServerPluginCacheControl } from 'apollo-server-core/dist/plugin/cacheControl';
+// import { MongooseModule } from '@nestjs/mongoose';
+// import { Configuration } from './config'
 
+// console.log('-----', `${Configuration.mongoDBs.atlas.protocol}://${Configuration.mongoDBs.atlas.host}/${Configuration.mongoDBs.atlas.database}`)
 @Module({
   imports: [
     GeneralModule,
@@ -31,6 +34,11 @@ import { ApolloServerPluginCacheControl } from 'apollo-server-core/dist/plugin/c
         responseCachePlugin(),
       ],
     }),
+    // MongooseModule.forRoot(
+    //   // 'mongodb+srv://ukraine-now-mongo:V3FOC99GhcedN26f@cluster0.um2gvlr.mongodb.net/ukraine_now'
+    //   // `${Configuration.mongoDBs.atlas.protocol}://${Configuration.mongoDBs.atlas.host}/${Configuration.mongoDBs.atlas.database}`
+    //   'mongodb+srv://ukraine-now-mongo:V3FOC99GhcedN26f@cluster0.um2gvlr.mongodb.net/mongodbVSCodePlaygroundDB'
+    // ),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', '..', 'client', 'build'),
       exclude: ['/graphql*', '/api*'],

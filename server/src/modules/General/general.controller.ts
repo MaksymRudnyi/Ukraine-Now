@@ -5,6 +5,7 @@ import { GeneralService } from './general.service';
 export class GeneralController {
   constructor(private readonly initService: GeneralService) {}
 
+  // outdated. can remove
   @Get()
   getOccupied() {
     return {
