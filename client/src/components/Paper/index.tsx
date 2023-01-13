@@ -1,11 +1,7 @@
 import { Box, BoxProps } from '@chakra-ui/react';
-import { FC, ReactElement } from 'react';
+import { FC } from 'react';
 
-type PaperProps = {
-  children: ReactElement;
-} & BoxProps;
-
-export const Paper: FC<PaperProps> = ({ children, ...boxProps }) => (
+export const Paper: FC<BoxProps> = ({ children, ...boxProps }) => (
   <Box
     border={'1px solid'}
     bgColor={'white'}

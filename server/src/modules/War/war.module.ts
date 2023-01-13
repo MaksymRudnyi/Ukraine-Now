@@ -12,7 +12,7 @@ import { WarController } from './war.controller';
       timeout: 5000,
       maxRedirects: 5,
     }),
-    // MongooseModule.forFeature([{ name: War.name, schema: WarSchema }])
+    MongooseModule.forFeature([{ name: War.name, schema: WarSchema }]),
   ],
   controllers: [WarController],
   providers: [WarService, WarResolver],

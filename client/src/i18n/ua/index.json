@@ -101,19 +101,23 @@
   "war": {
     "title": "Війна",
     "sub_title": "Загальні втрати противника",
-    "personnel": "Особового складу",
+    "personnel_units": "Особового складу",
     "tanks": "Танків",
-    "armouredVehicles": "Бойових броньованих машин",
-    "artillery": "Артилерійських систем",
+    "armoured_fighting_vehicles": "Бойових броньованих машин",
+    "artillery_systems": "Артилерійських систем",
     "mlrs": "РСЗВ",
-    "warfareSystems": "Засобів ППО",
+    "aa_warfare_systems": "Засобів ППО",
     "planes": "Літаків",
     "helicopters": "Гелікоптерів",
-    "fuelTanks": "Цистерн з ПММ",
-    "warships": "Кораблів/Катерів",
-    "cruiseMissiles": "Крилатих ракет",
-    "uavSystems": "БПЛ",
-    "specialEquip": "Спец. техніки",
-    "atgmSrbmSystems": "Установок ОТРК/ТРК"
+    "vehicles_fuel_tanks": "Цистерн з ПММ",
+    "warships_cutters": "Кораблів/Катерів",
+    "cruise_missiles": "Крилатих ракет",
+    "uav_systems": "БПЛ",
+    "special_military_equip": "Спец. техніки",
+    "atgm_srbm_systems": "Установок ОТРК/ТРК",
+    "graph": {
+      "by_days": "По днях",
+      "by_mounts": "По місяцях"
+    }
   }
 }

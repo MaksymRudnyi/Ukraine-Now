@@ -93,7 +93,7 @@
     "source": "Source: <a href='https://bank.gov.ua/en' target='_blank'>National Bank of Ukraine</a>"
   },
   "corruption": {
-    "country": "Ukraine",
+    "country": "Country",
     "corruption_perceptions_index": "Corruption Perception Index",
     "score": "Score",
     "rank": "Rank"
@@ -101,19 +101,23 @@
   "war": {
     "title": "War",
     "sub_title": "The total combat losses of the enemy",
-    "personnel": "Personnel units",
+    "personnel_units": "Personnel units",
     "tanks": "Tanks",
-    "armouredVehicles": "Armoured personal vehicle",
-    "artillery": "Artillery systems",
+    "armoured_fighting_vehicles": "Armoured personal vehicle",
+    "artillery_systems": "Artillery systems",
     "mlrs": "MLRS",
-    "warfareSystems": "AA warfare systems",
+    "aa_warfare_systems": "AA warfare systems",
     "planes": "Aircraft",
     "helicopters": "Helicopters",
-    "fuelTanks": "Vehicles and fuel tanks",
-    "warships": "Warships/Boats",
-    "cruiseMissiles": "Cruise missiles",
-    "uavSystems": "UAV operational-tactical level",
-    "specialEquip": "Special equipment",
-    "atgmSrbmSystems": "ATGM/SRBM systems"
+    "vehicles_fuel_tanks": "Vehicles and fuel tanks",
+    "warships_cutters": "Warships/Boats",
+    "cruise_missiles": "Cruise missiles",
+    "uav_systems": "UAV operational-tactical level",
+    "special_military_equip": "Special equipment",
+    "atgm_srbm_systems": "ATGM/SRBM systems",
+    "graph": {
+      "by_days": "By days",
+      "by_mounts": "By mounts"
+    }
   }
 }

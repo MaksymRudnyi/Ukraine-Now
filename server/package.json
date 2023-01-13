@@ -35,6 +35,7 @@
     "@nestjs/apollo": "^10.1.6",
     "@nestjs/axios": "^1.0.0",
     "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/graphql": "^10.1.6",
     "@nestjs/mongoose": "^9.2.1",
