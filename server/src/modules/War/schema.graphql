@@ -1,5 +1,23 @@
 extend type Query {
   warLatest: War @cacheControl(maxAge: 3600)
+  warHistory(type: TypeOfStats): [WarHistory]
+}
+
+enum TypeOfStats {
+  personnel_units
+  tanks
+  armoured_fighting_vehicles
+  artillery_systems
+  mlrs
+  aa_warfare_systems
+  planes
+  helicopters
+  vehicles_fuel_tanks
+  warships_cutters
+  cruise_missiles
+  uav_systems
+  special_military_equip
+  atgm_srbm_systems
 }
 
 type Stats {
@@ -25,4 +43,10 @@ type War {
   resource: String
   stats: Stats!
   increase: Stats
+}
+
+type WarHistory {
+  date: String!
+  day: Int
+  increase: Int
 }

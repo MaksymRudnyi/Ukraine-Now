@@ -1,34 +1,44 @@
 import { gql } from '@apollo/client';
 
 const STATS_FRAGMENT = gql`
-    fragment Stats on Stats {
-        personnel: personnel_units
-        tanks
-        armouredVehicles: armoured_fighting_vehicles
-        artillery: artillery_systems
-        mlrs
-        warfareSystems: aa_warfare_systems
-        planes
-        helicopters
-        fuelTanks: vehicles_fuel_tanks
-        warships: warships_cutters
-        cruiseMissiles: cruise_missiles
-        uavSystems: uav_systems
-        specialEquip: special_military_equip
-        atgmSrbmSystems: atgm_srbm_systems
-    }
-`
+  fragment Stats on Stats {
+    personnel_units
+    tanks
+    armoured_fighting_vehicles
+    artillery_systems
+    mlrs
+    aa_warfare_systems
+    planes
+    helicopters
+    vehicles_fuel_tanks
+    warships_cutters
+    cruise_missiles
+    uav_systems
+    special_military_equip
+    atgm_srbm_systems
+  }
+`;
 
 export const GET_WAR_LATEST = gql`
-    query GetWarLatest {
-        warLatest {
-            stats {
-                ...Stats
-            }
-            increase {
-                ...Stats
-            }
-        }
+  query GetWarLatest {
+    warLatest {
+      stats {
+        ...Stats
+      }
+      increase {
+        ...Stats
+      }
     }
-    ${STATS_FRAGMENT}
+  }
+  ${STATS_FRAGMENT}
+`;
+
+export const GET_WAR_HISTORY = gql`
+  query GetWarHistory($type: TypeOfStats!) {
+    warHistory(type: $type) {
+      day
+      date
+      increase
+    }
+  }
 `;

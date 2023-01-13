@@ -9,38 +9,38 @@
 
 export interface GetWarLatest_warLatest_stats {
   __typename: 'Stats';
-  troops: number | null;
+  personnel_units: number | null;
   tanks: number | null;
-  armouredVehicles: number | null;
-  artillery: number | null;
+  armoured_fighting_vehicles: number | null;
+  artillery_systems: number | null;
   mlrs: number | null;
-  warfareSystems: number | null;
+  aa_warfare_systems: number | null;
   planes: number | null;
   helicopters: number | null;
-  fuelTanks: number | null;
-  warships: number | null;
-  cruiseMissiles: number | null;
-  uavSystems: number | null;
-  specialEquip: number | null;
-  atgmSrbmSystems: number | null;
+  vehicles_fuel_tanks: number | null;
+  warships_cutters: number | null;
+  cruise_missiles: number | null;
+  uav_systems: number | null;
+  special_military_equip: number | null;
+  atgm_srbm_systems: number | null;
 }
 
 export interface GetWarLatest_warLatest_increase {
   __typename: 'Stats';
-  troops: number | null;
+  personnel_units: number | null;
   tanks: number | null;
-  armouredVehicles: number | null;
-  artillery: number | null;
+  armoured_fighting_vehicles: number | null;
+  artillery_systems: number | null;
   mlrs: number | null;
-  warfareSystems: number | null;
+  aa_warfare_systems: number | null;
   planes: number | null;
   helicopters: number | null;
-  fuelTanks: number | null;
-  warships: number | null;
-  cruiseMissiles: number | null;
-  uavSystems: number | null;
-  specialEquip: number | null;
-  atgmSrbmSystems: number | null;
+  vehicles_fuel_tanks: number | null;
+  warships_cutters: number | null;
+  cruise_missiles: number | null;
+  uav_systems: number | null;
+  special_military_equip: number | null;
+  atgm_srbm_systems: number | null;
 }
 
 export interface GetWarLatest_warLatest {

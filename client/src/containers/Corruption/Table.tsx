@@ -14,14 +14,14 @@ type CurruptionTableProps = {
 
 export const CorruptionTable: FC<CurruptionTableProps> = observer(
   ({ corruption, onRowClick }) => {
-    const ukraineRef = useRef<HTMLTableRowElement>(null);
+    // const ukraineRef = useRef<HTMLTableRowElement>(null);
     const { t } = useTranslation();
 
-    useEffect(() => {
-      if (ukraineRef.current) {
-        ukraineRef.current.scrollIntoView();
-      }
-    }, []);
+    // useEffect(() => {
+    //   if (ukraineRef.current) {
+    //     ukraineRef.current.scrollIntoView();
+    //   }
+    // }, []);
 
     const columns = [
       {
