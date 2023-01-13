@@ -68,6 +68,7 @@ export const Sidebar = observer(() => {
         }
         background={'blackAlpha.600'}
         position={'fixed'}
+        zIndex={1}
         top={0}
         left={0}
         w={'100%'}
