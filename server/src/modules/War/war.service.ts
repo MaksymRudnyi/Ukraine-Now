@@ -20,11 +20,9 @@ export class WarService {
       .pipe(map((resp) => resp.data.data));
   }
 
-  getStatistics(offset: number) {
+  getStatistics(date: string) {
     return this.httpService
-      .get(
-        `https://russianwarship.rip/api/v1/statistics?offset=${offset}&limit=50`,
-      )
+      .get(`https://russianwarship.rip/api/v1/statistics/${date}`)
       .pipe(map((resp) => resp.data.data));
   }
 
@@ -50,24 +48,18 @@ export class WarService {
     );
   }
 
-  // async create(): Promise<WarModel> {
-  //
-  //   return forkJoin([
-  //     this.getStatistics(0),
-  //     this.getStatistics(50),
-  //     this.getStatistics(100),
-  //     this.getStatistics(150),
-  //     this.getStatistics(200),
-  //     this.getStatistics(250),
-  //     this.getStatistics(300)
-  //   ]).pipe(map(
-  //     data => {
-  //       // data.forEach((portion) => console.log('portion:', portion))
-  //       // data.forEach((portion) => portion.records.map((record) => this.warModel.create(record))))
-  //     }
-  //   ))
-  //   // return this.getStatistics(offset).pipe(
-  //   //   map((data) => data.records.map((record) => this.warModel.create(record)))
-  //   // )
-  // }
+  async sync() {
+    const data = await this.warModel.find().sort({ day: -1 }).limit(1).exec();
+
+    const lastDate = new Date(data[0].date);
+    lastDate.setDate(lastDate.getDate() + 1);
+    const nextDate = lastDate.toISOString().split('T')[0];
+
+    return this.getStatistics(nextDate).pipe(
+      map((data) => {
+        this.warModel.create(data);
+        return data;
+      }),
+    );
+  }
 }

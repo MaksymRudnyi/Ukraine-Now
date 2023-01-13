@@ -6,8 +6,8 @@ export class WarController {
   constructor(private readonly warService: WarService) {}
 
   // outdated. can remove
-  // @Get()
-  // getOccupied() {
-  //   return this.warService.create()
-  // }
+  @Get()
+  getOccupied() {
+    return this.warService.sync();
+  }
 }
