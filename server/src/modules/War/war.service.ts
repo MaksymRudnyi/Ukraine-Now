@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { HttpService } from '@nestjs/axios';
-import { Observable, map, of, forkJoin } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 import { AxiosResponse } from 'axios';
 import { War } from './war.interface';
 import { War as WarModel, WarDocument } from './schemas/war.schema';

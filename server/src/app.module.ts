@@ -2,16 +2,21 @@ import { join } from 'path';
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { GeneralModule } from './modules/General/general.module';
-import { CorruptionModule } from './modules/Corruption/corruption.module';
-import { CurrencyModule } from './modules/Currency/currency.module';
-import { WarModule } from './modules/War/war.module';
-import { AppCheckMiddleware } from './middlewares/AppCheck';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import responseCachePlugin from 'apollo-server-plugin-response-cache';
 import { ApolloServerPluginCacheControl } from 'apollo-server-core/dist/plugin/cacheControl';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ScheduleModule } from '@nestjs/schedule';
+
+import { AppCheckMiddleware } from './middlewares/AppCheck';
+
+import { TasksModule } from './tasks/tasks.module';
+
+import { GeneralModule } from './modules/General/general.module';
+import { CorruptionModule } from './modules/Corruption/corruption.module';
+import { CurrencyModule } from './modules/Currency/currency.module';
+import { WarModule } from './modules/War/war.module';
 
 @Module({
   imports: [
@@ -19,6 +24,8 @@ import { MongooseModule } from '@nestjs/mongoose';
     CurrencyModule,
     CorruptionModule,
     WarModule,
+    ScheduleModule.forRoot(),
+    TasksModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       typePaths: ['./src/**/*.graphql'],
