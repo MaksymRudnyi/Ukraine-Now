@@ -4,6 +4,7 @@ import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highmaps';
 import { Paper } from '../../../../components';
 import { useTranslation } from 'react-i18next';
+import { Box } from '@chakra-ui/react';
 
 type GraphByDaysViewProps = {
   history: [GetWarHistory_warHistory];
@@ -99,10 +100,10 @@ export const GraphByDaysView: FC<GraphByDaysViewProps> = ({
   };
 
   return (
-    <div ref={chartContainer}>
+    <Box ref={chartContainer} overflow={'hidden'}>
       <Paper sx={{ '.highcharts-credits': { display: 'none' } }}>
         <HighchartsReact highcharts={Highcharts} options={config} />
       </Paper>
-    </div>
+    </Box>
   );
 };

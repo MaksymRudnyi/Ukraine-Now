@@ -75,7 +75,7 @@ export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
         </Box>
       </GridItem>
 
-      <GridItem colSpan={[1, 1, 2]} w="100%">
+      <GridItem colSpan={[1, 1, 2]} w="100%" overflow={'hidden'}>
         <CorruptionGraph
           series={series}
           title={`${t('corruption.corruption_perceptions_index')}. ${
