@@ -11,20 +11,22 @@ dotenv.config();
 const expressServer = express();
 firebaseAdmin.initializeApp();
 
-const createFunction = async (expressInstance): Promise<void> => {
+export const createNestServer = async (expressInstance) => {
   const app = await NestFactory.create(
     AppModule,
     new ExpressAdapter(expressInstance),
   );
+
   app.enableCors();
-  await app.init();
+  return app.init();
 };
+
+createNestServer(expressServer)
+  .then(() => console.log('Nest Ready'))
+  .catch((err) => console.error('Nest broken', err));
 
 export const api = functions
   .runWith({
     enforceAppCheck: true, // Requests without valid App Check tokens will be rejected.
   })
-  .https.onRequest(async (request, response) => {
-    await createFunction(expressServer);
-    expressServer(request, response);
-  });
+  .https.onRequest(expressServer);
