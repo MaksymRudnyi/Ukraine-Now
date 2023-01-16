@@ -1,17 +1,29 @@
-import { QueryData, Title } from '../../components';
+import { Loader, Title } from '../../components';
 import { CorruptionView } from './CorruptionView';
-import { GET_CORRUPTION } from './queries';
+// import { GET_CORRUPTION } from './queries';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from 'react-query';
+import React from 'react';
+import { API } from '../../constants';
 
 export const Corruption = () => {
   const { t } = useTranslation();
+  const { isLoading, error, data } = useQuery('corruption', () =>
+    fetch(`${API}/corruption`).then((res) => res.json())
+  );
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <div>Error.</div>;
+  }
 
   return (
     <>
       <Title>{t('corruption.corruption_perceptions_index')}</Title>
-      <QueryData query={GET_CORRUPTION}>
-        {({ corruption }) => <CorruptionView corruption={corruption} />}
-      </QueryData>
+      <CorruptionView corruption={data} />
     </>
   );
 };

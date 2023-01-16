@@ -1,20 +1,36 @@
 import { Card, Action } from '../../components';
-import { GetWarLatest_warLatest_stats } from './__generated__/GetWarLatest';
 import { Text, Grid, GridItem, Box } from '@chakra-ui/react';
-import { FC, useState, useEffect, useCallback } from 'react';
+import { FC, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { GraphByDays } from './components/';
+// import { GraphByDays } from './components/';
+
+type Stats = {
+  personnel_units: number | null;
+  tanks: number | null;
+  armoured_fighting_vehicles: number | null;
+  artillery_systems: number | null;
+  mlrs: number | null;
+  aa_warfare_systems: number | null;
+  planes: number | null;
+  helicopters: number | null;
+  vehicles_fuel_tanks: number | null;
+  warships_cutters: number | null;
+  cruise_missiles: number | null;
+  uav_systems: number | null;
+  special_military_equip: number | null;
+  atgm_srbm_systems: number | null;
+};
 
 type CorruptionViewProps = {
-  stats: GetWarLatest_warLatest_stats;
-  increase: GetWarLatest_warLatest_stats;
+  stats: Stats;
+  increase: Stats;
 };
 
 export const WarView: FC<CorruptionViewProps> = ({ stats, increase }) => {
   const { t } = useTranslation();
   const data = Object.entries(stats)
     .filter((item) => item[0] !== '__typename')
-    .sort((a, b) => b[1] - a[1]);
+    .sort((a, b) => b[1]! - a[1]!);
   const [selectedType, setSelectedType] = useState<string>('');
 
   const onCardClick = useCallback(
@@ -38,7 +54,7 @@ export const WarView: FC<CorruptionViewProps> = ({ stats, increase }) => {
         {data.map((item) => {
           const value = (
             <>
-              <Action>{item[1]}</Action>
+              {item[1]}
               {increase[item[0]] ? (
                 <Text as={'span'} fontSize={'md'}>
                   {' '}
@@ -55,7 +71,7 @@ export const WarView: FC<CorruptionViewProps> = ({ stats, increase }) => {
               w="100%"
               onClick={() => onCardClick(item[0])}
             >
-              <Box cursor={'pointer'}>
+              <Box>
                 <Card value={value} title={title} />
               </Box>
             </GridItem>
@@ -63,7 +79,7 @@ export const WarView: FC<CorruptionViewProps> = ({ stats, increase }) => {
         })}
       </Grid>
 
-      <GraphByDays type={selectedType} />
+      {/*<GraphByDays type={selectedType} />*/}
     </>
   );
 };

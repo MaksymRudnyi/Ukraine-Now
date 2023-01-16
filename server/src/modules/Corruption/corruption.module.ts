@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { HttpModule } from '@nestjs/axios';
 import { CorruptionService } from './corruption.service';
-import { CorruptionResolver } from './corruption.resolver';
+import { CorruptionController } from './corruption.controller';
 
 @Module({
   imports: [
@@ -10,7 +10,7 @@ import { CorruptionResolver } from './corruption.resolver';
       maxRedirects: 5,
     }),
   ],
-  controllers: [],
-  providers: [CorruptionService, CorruptionResolver],
+  controllers: [CorruptionController],
+  providers: [CorruptionService],
 })
 export class CorruptionModule {}

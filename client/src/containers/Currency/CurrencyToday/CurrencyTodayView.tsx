@@ -1,19 +1,19 @@
 import { CurrencyByDates } from '..';
-import { Action, ModalWindow, InternalLink } from '../../../components';
-import { GetCurrencyForToday_currencyToday } from './__generated__/GetCurrencyForToday';
+import { Action, ModalWindow } from '../../../components';
 import { Box, useDisclosure } from '@chakra-ui/react';
 import { FC, useState } from 'react';
+import { ICurrency } from '../interfaces';
 
 const CURRENCY_TO_SHOW = ['USD', 'EUR'];
 
 type CurrencyTodayViewProps = {
-  currencyToday: GetCurrencyForToday_currencyToday[];
+  currencyToday: ICurrency[];
 };
 
 export const CurrencyTodayView: FC<CurrencyTodayViewProps> = ({
   currencyToday,
 }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { onClose } = useDisclosure();
   const [currency, setCurrency] = useState('');
   const [EUR, USD] = currencyToday
     .filter((item) => CURRENCY_TO_SHOW.includes(item.cc))
@@ -48,7 +48,7 @@ export const CurrencyTodayView: FC<CurrencyTodayViewProps> = ({
       </Box>
 
       <ModalWindow isOpen={!!currency} onClose={closeModal}>
-        <CurrencyByDates valcode={currency} endDate={''} startDate={''} />
+        <CurrencyByDates valcode={currency} />
       </ModalWindow>
     </div>
   );

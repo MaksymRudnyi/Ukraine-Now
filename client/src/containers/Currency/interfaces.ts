@@ -1,8 +1,8 @@
 export interface ICurrency {
-  r030: number;
-  txt: string;
-  rate: number;
-  cc: string;
   exchangedate: string;
+  cc: string;
+  txt: string | null;
+  r030: number | null;
+  rate: number;
   enname?: string | null;
 }
