@@ -1,6 +1,5 @@
 import { Paper } from '../../components';
 import store from '../../store';
-import { Box } from '@chakra-ui/react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highmaps';
 import { observer } from 'mobx-react-lite';

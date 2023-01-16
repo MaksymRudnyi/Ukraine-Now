@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { HttpModule } from '@nestjs/axios';
 import { CurrencyService } from './currency.service';
-import { CurrencyResolver } from './currency.resolver';
+import { CurrencyController } from './currency.controller';
 
 @Module({
   imports: [
@@ -10,7 +10,7 @@ import { CurrencyResolver } from './currency.resolver';
       maxRedirects: 5,
     }),
   ],
-  controllers: [],
-  providers: [CurrencyService, CurrencyResolver],
+  controllers: [CurrencyController],
+  providers: [CurrencyService],
 })
 export class CurrencyModule {}

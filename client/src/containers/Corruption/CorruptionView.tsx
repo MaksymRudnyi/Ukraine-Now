@@ -2,14 +2,12 @@ import { Action, Card } from '../../components';
 import { UKRAINE_ISO } from '../../constants';
 import { CorruptionGraph } from './Graph';
 import { CorruptionTable } from './Table';
-import { GetCorruption_corruption } from './__generated__/GetCorruption';
-import { SeriesType } from './interfaces';
 import { Box, Grid, GridItem } from '@chakra-ui/react';
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 type CorruptionViewProps = {
-  corruption: GetCorruption_corruption[];
+  corruption;
 };
 
 export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
@@ -29,7 +27,7 @@ export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
     (item) => item.year === ukraineThisYear.year
   );
 
-  const series: SeriesType[] = [
+  const series = [
     {
       name: 'Ukraine',
       data: ukraine.map((item) => ({
@@ -49,7 +47,7 @@ export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
     });
   }
 
-  const onRowClick = (row: GetCorruption_corruption) => {
+  const onRowClick = (row) => {
     setCompareCountry(row.iso3 === compareCountry ? '' : row.iso3);
   };
 

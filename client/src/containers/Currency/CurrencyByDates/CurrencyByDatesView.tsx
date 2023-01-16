@@ -1,15 +1,15 @@
 import { LOCALS } from '../../../constants';
 import store from '../../../store';
-import { GetCurrencyByDates_currencyByDates } from './__generated__/GetCurrencyByDates';
 import { Box } from '@chakra-ui/react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highmaps';
 import { observer } from 'mobx-react-lite';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ICurrency } from '../interfaces';
 
 type CurrencyByDatesViewProps = {
-  currencyByDates: GetCurrencyByDates_currencyByDates[];
+  currencyByDates: ICurrency[];
 };
 
 export const CurrencyByDatesView: FC<CurrencyByDatesViewProps> = observer(

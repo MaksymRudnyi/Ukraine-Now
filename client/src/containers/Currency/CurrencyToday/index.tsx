@@ -1,11 +1,20 @@
-import {GET_CURRENCY_FOR_TODAY} from "./queries";
-import { QueryData } from '../../../components';
-import { CurrencyTodayView} from "./CurrencyTodayView";
+import { Loader } from '../../../components';
+import { CurrencyTodayView } from './CurrencyTodayView';
+import { useQuery } from 'react-query';
 
 export const CurrencyToday = () => {
-  return (
-    <QueryData query={GET_CURRENCY_FOR_TODAY}>
-      {({currencyToday}) => <CurrencyTodayView currencyToday={currencyToday}/> }
-    </QueryData>
-  )
-}
+  const { isLoading, error, data } = useQuery('currencyToday', () =>
+    fetch(
+      `https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json`
+    ).then((res) => res.json())
+  );
+
+  if (isLoading) {
+    return <Loader />;
+  }
+  if (error) {
+    return <div>Error</div>;
+  }
+
+  return <CurrencyTodayView currencyToday={data} />;
+};

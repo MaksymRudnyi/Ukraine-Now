@@ -1,14 +1,14 @@
 import { Paper, Action } from '../../components';
 import { Table } from '../../components/Table';
 import { UKRAINE_ISO } from '../../constants';
-import { GetCorruption_corruption } from './__generated__/GetCorruption';
+// import { GetCorruption_corruption } from './__generated__/GetCorruption';
 import { Box } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
 import { FC, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 type CurruptionTableProps = {
-  corruption: GetCorruption_corruption[];
+  corruption;
   onRowClick?: Function;
 };
 
