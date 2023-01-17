@@ -117,7 +117,8 @@
     "atgm_srbm_systems": "ATGM/SRBM systems",
     "graph": {
       "by_days": "By days",
-      "by_mounts": "By mounts"
+      "by_mounts": "By mounts",
+      "items": "Items"
     }
   }
 }

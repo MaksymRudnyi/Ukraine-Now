@@ -2,7 +2,7 @@ import { Card, Action } from '../../components';
 import { Text, Grid, GridItem, Box } from '@chakra-ui/react';
 import { FC, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-// import { GraphByDays } from './components/';
+import { GraphByDays } from './components/';
 
 type Stats = {
   personnel_units: number | null;
@@ -54,7 +54,7 @@ export const WarView: FC<CorruptionViewProps> = ({ stats, increase }) => {
         {data.map((item) => {
           const value = (
             <>
-              {item[1]}
+              <Action>{item[1]}</Action>
               {increase[item[0]] ? (
                 <Text as={'span'} fontSize={'md'}>
                   {' '}
@@ -71,7 +71,7 @@ export const WarView: FC<CorruptionViewProps> = ({ stats, increase }) => {
               w="100%"
               onClick={() => onCardClick(item[0])}
             >
-              <Box>
+              <Box cursor={'pointer'}>
                 <Card value={value} title={title} />
               </Box>
             </GridItem>
@@ -79,7 +79,7 @@ export const WarView: FC<CorruptionViewProps> = ({ stats, increase }) => {
         })}
       </Grid>
 
-      {/*<GraphByDays type={selectedType} />*/}
+      <GraphByDays type={selectedType} />
     </>
   );
 };

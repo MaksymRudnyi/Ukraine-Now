@@ -117,7 +117,8 @@
     "atgm_srbm_systems": "Установок ОТРК/ТРК",
     "graph": {
       "by_days": "По днях",
-      "by_mounts": "По місяцях"
+      "by_mounts": "По місяцях",
+      "items": "Штук"
     }
   }
 }
