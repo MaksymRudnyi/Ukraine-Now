@@ -30,7 +30,11 @@ export const War = () => {
         </GridItem>
       </Grid>
 
-      <SubTitle>{t('war.sub_title')}</SubTitle>
+      <SubTitle>
+        <>
+          {t('war.sub_title')} ({data?.date})
+        </>
+      </SubTitle>
 
       {error ? <div>Error</div> : null}
 

@@ -6,10 +6,17 @@ import { Observable, map, of, forkJoin } from 'rxjs';
 import { AxiosResponse } from 'axios';
 import { War } from './war.interface';
 // import { War as WarModel, WarDocument } from './schemas/war.schema';
+import { firestore, database } from 'firebase-admin';
+import DocumentSnapshot = firestore.DocumentSnapshot;
+import QuerySnapshot = firestore.QuerySnapshot;
 
 @Injectable()
 export class WarService {
-  constructor(private readonly httpService: HttpService) {}
+  private collection: FirebaseFirestore.CollectionReference<FirebaseFirestore.DocumentData>;
+
+  constructor(private readonly httpService: HttpService) {
+    this.collection = firestore().collection('wars');
+  }
 
   getLatest(): Observable<AxiosResponse<War>> {
     return this.httpService
@@ -25,30 +32,46 @@ export class WarService {
       .pipe(map((resp) => resp.data.data));
   }
 
-  // async history(type: string) {
-  //   const data = await this.warModel
-  //     .find()
-  //     .sort({ day: 1 })
-  //     .select({ day: 1, date: 1, stats: { [type]: 1 } })
-  //     .exec();
-  //
-  //   return of(data).pipe(
-  //     map((data) =>
-  //       data.map((record, index) => {
-  //         const current = record.stats[type];
-  //         const prev = data[index - 1] ? data[index - 1].stats[type] : 0;
-  //         return {
-  //           day: record.day,
-  //           date: record.date,
-  //           increase: current > prev ? current - prev : prev - current,
-  //         };
-  //       }),
-  //     ),
-  //   );
-  // }
+  async history() {
+    const snapshot = await this.collection.orderBy('day', 'asc').get();
 
-  // async create(): Promise<WarModel> {
-  //
+    return of(snapshot).pipe(
+      map((data) => {
+        const records = [];
+
+        data.forEach((record) => {
+          records.push(record.data());
+        });
+
+        return records;
+      }),
+    );
+    // return of(snapshot).pipe(
+    //   map((record) => record.data())
+    // )
+    // const data = await this.warModel
+    //   .find()
+    //   .sort({ day: 1 })
+    //   .select({ day: 1, date: 1, stats: { [type]: 1 } })
+    //   .exec();
+    //
+    // return of(data).pipe(
+    //   map((data) =>
+    //     data.map((record, index) => {
+    //       const current = record.stats[type];
+    //       const prev = data[index - 1] ? data[index - 1].stats[type] : 0;
+    //       return {
+    //         day: record.day,
+    //         date: record.date,
+    //         increase: current > prev ? current - prev : prev - current,
+    //       };
+    //     }),
+    //   ),
+    // );
+  }
+
+  async create() {}
+  // async create() {
   //   return forkJoin([
   //     this.getStatistics(0),
   //     this.getStatistics(50),
@@ -60,11 +83,8 @@ export class WarService {
   //   ]).pipe(map(
   //     data => {
   //       // data.forEach((portion) => console.log('portion:', portion))
-  //       // data.forEach((portion) => portion.records.map((record) => this.warModel.create(record))))
+  //       data.forEach((portion) => portion.records.map((record) => this.collection.add(record)))
   //     }
   //   ))
-  //   // return this.getStatistics(offset).pipe(
-  //   //   map((data) => data.records.map((record) => this.warModel.create(record)))
-  //   // )
   // }
 }
