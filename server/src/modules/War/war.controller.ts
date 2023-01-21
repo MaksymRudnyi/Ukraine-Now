@@ -14,4 +14,9 @@ export class WarController {
   history() {
     return this.warService.history();
   }
+
+  @Get('sync')
+  sync() {
+    return this.warService.sync();
+  }
 }
