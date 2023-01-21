@@ -72,7 +72,7 @@ export class WarService {
     );
   }
 
-  async create() {}
+  // async create() {}
   // async create() {
   //   return forkJoin([
   //     this.getStatistics(0),
