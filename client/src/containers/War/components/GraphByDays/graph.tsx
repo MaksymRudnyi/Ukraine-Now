@@ -132,9 +132,9 @@ export const GraphByDaysView: FC<GraphByDaysViewProps> = ({
       formatter: function () {
         return (
           '<b>' +
-          // @ts-ignore
           Highcharts.dateFormat(
             currentDisplay === Display.BY_MONTHS ? '%B %Y' : '%A %d %B',
+            // @ts-ignore
             this.x
           ) +
           '</b> - <b>' +
