@@ -19,6 +19,9 @@ import React, { useRef, useEffect, FC } from 'react';
 type TableProps = {
   data: any;
   columns: any;
+  styles?: {
+    tableContainer?: any;
+  };
   selectedFn?: (row: any) => boolean;
   onRowClick?: Function;
 };
@@ -26,6 +29,7 @@ type TableProps = {
 export const Table: FC<TableProps> = ({
   data,
   columns,
+  styles,
   selectedFn,
   onRowClick,
 }) => {
@@ -46,7 +50,12 @@ export const Table: FC<TableProps> = ({
   }, []);
 
   return (
-    <TableContainer overflowY={'auto'} maxH={'368px'} mt={'32px'}>
+    <TableContainer
+      overflowY={'auto'}
+      maxH={'368px'}
+      mt={'32px'}
+      {...styles?.tableContainer}
+    >
       <ChakraTable variant="striped" size={'sm'} sx={{ tableLayout: 'fixed' }}>
         <Thead>
           {table.getHeaderGroups().map((headerGroup) => (

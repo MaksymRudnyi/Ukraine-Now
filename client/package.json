@@ -96,6 +96,7 @@
     "babel-plugin-named-exports-order": "^0.0.2",
     "prettier-plugin-organize-imports": "^3.2.0",
     "prop-types": "^15.8.1",
+    "storybook-addon-mock": "^3.2.0",
     "webpack": "^5.75.0"
   },
   "resolutions": {
