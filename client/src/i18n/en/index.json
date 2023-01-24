@@ -115,10 +115,24 @@
     "uav_systems": "UAV operational-tactical level",
     "special_military_equip": "Special equipment",
     "atgm_srbm_systems": "ATGM/SRBM systems",
+    "tabs": {
+      "graph": "Graph",
+      "table": "Table",
+      "day": "Day",
+      "date": "Date",
+      "count": "Count"
+    },
     "graph": {
+      "display": "Display:",
       "by_days": "By days",
-      "by_mounts": "By mounts",
+      "by_months": "By months",
+      "statistics": "Statistics",
       "items": "Items"
+    },
+    "table": {
+      "day": "Day",
+      "date": "Date",
+      "count": "Count"
     }
   }
 }

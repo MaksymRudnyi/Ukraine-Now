@@ -115,10 +115,21 @@
     "uav_systems": "БПЛ",
     "special_military_equip": "Спец. техніки",
     "atgm_srbm_systems": "Установок ОТРК/ТРК",
+    "tabs": {
+      "graph": "Графік",
+      "table": "Табличка"
+    },
     "graph": {
+      "display": "Відображаємо:",
       "by_days": "По днях",
-      "by_mounts": "По місяцях",
+      "by_months": "По місяцях",
+      "statistics": "Статистика",
       "items": "Штук"
+    },
+    "table": {
+      "day": "День",
+      "date": "Дата",
+      "count": "Кількість"
     }
   }
 }

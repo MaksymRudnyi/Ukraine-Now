@@ -1,14 +1,9 @@
 import { Injectable } from '@nestjs/common';
-// import { Model } from 'mongoose';
-// import { InjectModel } from '@nestjs/mongoose';
 import { HttpService } from '@nestjs/axios';
 import { Observable, map, of, forkJoin } from 'rxjs';
 import { AxiosResponse } from 'axios';
 import { War } from './war.interface';
-// import { War as WarModel, WarDocument } from './schemas/war.schema';
-import { firestore, database } from 'firebase-admin';
-import DocumentSnapshot = firestore.DocumentSnapshot;
-import QuerySnapshot = firestore.QuerySnapshot;
+import { firestore } from 'firebase-admin';
 
 @Injectable()
 export class WarService {
@@ -32,6 +27,12 @@ export class WarService {
       .pipe(map((resp) => resp.data.data));
   }
 
+  getStatisticsByDate(date: string) {
+    return this.httpService
+      .get(`https://russianwarship.rip/api/v1/statistics/${date}`)
+      .pipe(map((resp) => resp.data.data));
+  }
+
   async history() {
     const snapshot = await this.collection.orderBy('day', 'asc').get();
 
@@ -46,31 +47,32 @@ export class WarService {
         return records;
       }),
     );
-    // return of(snapshot).pipe(
-    //   map((record) => record.data())
-    // )
-    // const data = await this.warModel
-    //   .find()
-    //   .sort({ day: 1 })
-    //   .select({ day: 1, date: 1, stats: { [type]: 1 } })
-    //   .exec();
-    //
-    // return of(data).pipe(
-    //   map((data) =>
-    //     data.map((record, index) => {
-    //       const current = record.stats[type];
-    //       const prev = data[index - 1] ? data[index - 1].stats[type] : 0;
-    //       return {
-    //         day: record.day,
-    //         date: record.date,
-    //         increase: current > prev ? current - prev : prev - current,
-    //       };
-    //     }),
-    //   ),
-    // );
   }
 
-  async create() {}
+  async sync() {
+    let theLastRecord;
+    const snapshot = await this.collection
+      .orderBy('day', 'desc')
+      .limit(1)
+      .get();
+
+    snapshot.forEach((record) => {
+      theLastRecord = record.data();
+    });
+
+    const lastDate = new Date(theLastRecord.date);
+    lastDate.setDate(lastDate.getDate() + 1);
+    const nextDate = lastDate.toISOString().split('T')[0];
+
+    return this.getStatisticsByDate(nextDate).pipe(
+      map((data) => {
+        this.collection.add(data);
+        return data;
+      }),
+    );
+  }
+
+  // async create() {}
   // async create() {
   //   return forkJoin([
   //     this.getStatistics(0),

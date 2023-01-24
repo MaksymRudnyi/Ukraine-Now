@@ -5,13 +5,18 @@ import { WarService } from './war.service';
 export class WarController {
   constructor(private readonly warService: WarService) {}
 
-  @Get()
-  create() {
-    return this.warService.create();
-  }
+  // @Get()
+  // create() {
+  //   return this.warService.create();
+  // }
 
   @Get('history')
   history() {
     return this.warService.history();
+  }
+
+  @Get('sync')
+  sync() {
+    return this.warService.sync();
   }
 }
