@@ -3,15 +3,32 @@ import { nav } from './items';
 import { Box, Text, Icon } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { Link as ScrollLink, scroller } from 'react-scroll';
+import { useEffect } from 'react';
+
+const scrollLinkProps = {
+  activeStyle: { color: 'white' },
+  spy: true,
+  smooth: true,
+  duration: 500,
+  offset: -76,
+  hashSpy: true,
+};
 
 export const Nav = observer(() => {
   const { isMobileNavigationOpen } = store.UI;
   const { t } = useTranslation();
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    scroller.scrollTo(hash.slice(1), scrollLinkProps);
+  }, [pathname]);
 
   return (
     <Box
       padding={4}
+      color={'whiteAlpha.600'}
       w={[
         '280px',
         '280px',
@@ -56,19 +73,27 @@ export const Nav = observer(() => {
             {t(menu.label)}
           </Text>
           {menu.content.map((link) => {
+            const isTheSamePage = pathname === menu.pathname;
+            const LinkComponent =
+              link.isScroll && isTheSamePage ? ScrollLink : Link;
+
             return (
-              <Link to={link.link} key={link.link}>
+              <LinkComponent
+                to={isTheSamePage ? link.link : `${menu.pathname}#${link.link}`}
+                key={link.link}
+                {...scrollLinkProps}
+              >
                 <Text
                   h={10}
                   transition={
                     'transform .2s, height 300ms, color 300ms, background-color 300ms, -webkit-transform .2s'
                   }
-                  color={'whiteAlpha.600'}
                   whiteSpace={'nowrap'}
                   position={'relative'}
                   display={'flex'}
                   alignItems={'center'}
                   borderRadius={'4px'}
+                  cursor={'pointer'}
                   _hover={{
                     color: 'white',
                     backgroundColor: 'whiteAlpha.100',
@@ -95,7 +120,7 @@ export const Nav = observer(() => {
                   />
                   {t(link.label)}
                 </Text>
-              </Link>
+              </LinkComponent>
             );
           })}
         </>

@@ -1,7 +1,7 @@
 import { Title, SubTitle, Loader } from '../../components';
 import { useTranslation } from 'react-i18next';
 import { WarView } from './WarView';
-import { Grid, GridItem } from '@chakra-ui/react';
+import { Grid, GridItem, Box } from '@chakra-ui/react';
 import { OccupiedView, WarDaysCounterView } from './components';
 import { useQuery } from 'react-query';
 
@@ -14,7 +14,7 @@ export const War = () => {
   );
 
   return (
-    <>
+    <Box id={'war'}>
       <Title>{t('war.title')}</Title>
 
       <Grid
@@ -43,6 +43,6 @@ export const War = () => {
       ) : (
         <WarView stats={data.stats} increase={data.increase} />
       )}
-    </>
+    </Box>
   );
 };

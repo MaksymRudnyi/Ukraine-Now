@@ -3,7 +3,7 @@ import {
   UkraineGeneralInfo,
   Helmet,
   Corruption,
-  War
+  War,
 } from '../../containers';
 import { Grid, GridItem } from '@chakra-ui/react';
 import { FC } from 'react';
@@ -12,6 +12,7 @@ export const Home: FC = () => (
   <>
     <Helmet />
     <Grid
+      id={'home'}
       templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(5, 1fr)']}
       gap={4}
       mb={4}
@@ -25,7 +26,7 @@ export const Home: FC = () => (
       </GridItem>
     </Grid>
 
-    <Corruption/>
-    <War/>
+    <Corruption />
+    <War />
   </>
 );
