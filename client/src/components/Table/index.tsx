@@ -43,11 +43,11 @@ export const Table: FC<TableProps> = ({
 
   const selectedRow = useRef<HTMLTableRowElement>(null);
 
-  useEffect(() => {
-    if (selectedRow.current) {
-      selectedRow.current.scrollIntoView();
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (selectedRow.current) {
+  //     selectedRow.current.scrollIntoView();
+  //   }
+  // }, []);
 
   return (
     <TableContainer
@@ -131,12 +131,3 @@ export const Table: FC<TableProps> = ({
     </TableContainer>
   );
 };
-
-// Table.propTypes = {
-//     className: PropTypes.string,
-//     data: PropTypes.arrayOf(PropTypes.object).isRequired,
-//     columns: PropTypes.arrayOf(PropTypes.shape({
-//         Header: PropTypes.any,
-//         accessor: PropTypes.string.isRequired
-//     }))
-// };

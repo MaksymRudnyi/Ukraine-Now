@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
 import React from 'react';
 import { API } from '../../constants';
+import { Box } from '@chakra-ui/react';
 
 export const Corruption = () => {
   const { t } = useTranslation();
@@ -21,9 +22,9 @@ export const Corruption = () => {
   }
 
   return (
-    <>
+    <Box id={'corruption'}>
       <Title>{t('corruption.corruption_perceptions_index')}</Title>
       <CorruptionView corruption={data} />
-    </>
+    </Box>
   );
 };
