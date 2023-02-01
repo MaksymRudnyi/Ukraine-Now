@@ -4,6 +4,7 @@ import {
   Helmet,
   Corruption,
   War,
+  Economy,
 } from '../../containers';
 import { Grid, GridItem } from '@chakra-ui/react';
 import { FC } from 'react';
@@ -28,5 +29,6 @@ export const Home: FC = () => (
 
     <Corruption />
     <War />
+    <Economy />
   </>
 );

@@ -6,3 +6,4 @@ export * from './Currency';
 export * from './Helmet';
 export * from './Corruption';
 export * from './War';
+export * from './Economy';

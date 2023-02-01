@@ -74,8 +74,7 @@ export const Nav = observer(() => {
           </Text>
           {menu.content.map((link) => {
             const isTheSamePage = pathname === menu.pathname;
-            const LinkComponent =
-              link.isScroll && isTheSamePage ? ScrollLink : Link;
+            const LinkComponent = isTheSamePage ? ScrollLink : Link;
 
             return (
               <LinkComponent
