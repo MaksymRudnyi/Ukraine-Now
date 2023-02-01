@@ -79,7 +79,7 @@ export const WarView: FC<CorruptionViewProps> = ({ stats, increase }) => {
         })}
       </Grid>
 
-      {/*<GraphByDays type={selectedType} />*/}
+      <GraphByDays type={selectedType} />
     </>
   );
 };
