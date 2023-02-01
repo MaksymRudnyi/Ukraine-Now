@@ -1,4 +1,10 @@
-import { FaHome, FaInfoCircle, FaDonate, FaRocket } from 'react-icons/fa';
+import {
+  FaHome,
+  FaInfoCircle,
+  FaDonate,
+  FaRocket,
+  FaDollarSign,
+} from 'react-icons/fa';
 
 export const nav = [
   {
@@ -9,19 +15,21 @@ export const nav = [
         label: 'nav.home',
         icon: FaHome,
         link: 'home',
-        isScroll: true,
       },
       {
         label: 'nav.corruption',
         icon: FaDonate,
         link: 'corruption',
-        isScroll: true,
       },
       {
         label: 'nav.war',
         icon: FaRocket,
         link: 'war',
-        isScroll: true,
+      },
+      {
+        label: 'nav.economy',
+        icon: FaDollarSign,
+        link: 'economy',
       },
     ],
   },
@@ -33,7 +41,6 @@ export const nav = [
         label: 'nav.about',
         icon: FaInfoCircle,
         link: 'about',
-        isScroll: true,
       },
     ],
   },

@@ -9,3 +9,4 @@ export { InternalLink } from './InternalLink';
 export { Paper } from './Paper';
 export { Title, SubTitle } from './Title';
 export { Action } from './Action';
+export { ChartYear } from './Chart';

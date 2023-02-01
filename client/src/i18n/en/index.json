@@ -4,6 +4,7 @@
     "home": "Home",
     "corruption": "Сorruption",
     "war": "War",
+    "economy": "Economy",
     "about": "About"
   },
   "helmet": {
@@ -135,5 +136,15 @@
       "date": "Date",
       "count": "Count"
     }
+  },
+  "economy": {
+    "title": "Economy",
+    "ukraine": "Ukraine",
+    "year": "As of {{year}}",
+    "GDP_per_capita": "GDP per capita",
+    "GDP": "GDP",
+    "GDP_growth": "GDP growth",
+    "inflation": "Inflation",
+    "unemployment": "Unemployment"
   }
 }

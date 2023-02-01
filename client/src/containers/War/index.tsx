@@ -14,7 +14,7 @@ export const War = () => {
   );
 
   return (
-    <Box id={'war'}>
+    <Box id={'war'} mb={4}>
       <Title>{t('war.title')}</Title>
 
       <Grid
