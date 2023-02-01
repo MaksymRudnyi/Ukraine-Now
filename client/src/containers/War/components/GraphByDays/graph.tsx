@@ -56,6 +56,30 @@ export const GraphByDaysView: FC<GraphByDaysViewProps> = ({
       return acc;
     }, {});
 
+    const difference = history
+      .filter((element) => {
+        const day = element.date.slice(8, 10);
+
+        return day === '01';
+      })
+      .reduce((acc, element) => {
+        const month = element.date.slice(0, 7);
+        acc[month] = (acc[month] ? acc[month] : 0) + element.increase;
+
+        return acc;
+      }, {});
+
+    const differenceEntries = Object.entries(difference);
+
+    differenceEntries.forEach(([month, increase], index) => {
+      // @ts-ignore
+      groupByMonth[month] = groupByMonth[month] - increase;
+
+      const nextMonthIncrease = differenceEntries[index + 1];
+      groupByMonth[month] =
+        groupByMonth[month] + (nextMonthIncrease ? nextMonthIncrease[1] : 0);
+    });
+
     const series: Series[] = [];
 
     for (const [key, value] of Object.entries(groupByMonth)) {
