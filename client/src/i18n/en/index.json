@@ -1,4 +1,5 @@
 {
+  "ukraine": "Ukraine",
   "nav": {
     "general": "General",
     "home": "Home",
@@ -7,6 +8,7 @@
     "economy": "Economy",
     "about": "About"
   },
+  "error": "Error. Try again later.",
   "helmet": {
     "home": {
       "title": "Ukraine NOW - the main dashboard statistics",
@@ -145,6 +147,10 @@
     "GDP": "GDP",
     "GDP_growth": "GDP growth",
     "inflation": "Inflation",
-    "unemployment": "Unemployment"
+    "unemployment": "Unemployment",
+    "table": {
+      "country": "Country",
+      "value": "Value"
+    }
   }
 }

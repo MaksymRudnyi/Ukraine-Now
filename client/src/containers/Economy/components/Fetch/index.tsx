@@ -1,13 +1,14 @@
 import React, { useMemo } from 'react';
 import { useQuery } from 'react-query';
+import axios from 'axios';
 
 export const Fetch = ({ country, indicator, children }) => {
-  const { isLoading, error, data } = useQuery(indicator + country, () =>
-    fetch(
+  const { isLoading, isError, data } = useQuery(indicator + country, () =>
+    axios(
       `https://api.worldbank.org/v2/country/${country}/indicator/${indicator}?format=json${
         country === 'all' ? '&mrnev=1&per_page=1000' : ''
       }`
-    ).then((res) => res.json())
+    ).then((res) => res.data)
   );
 
   const byYears = useMemo(() => {
@@ -20,7 +21,7 @@ export const Fetch = ({ country, indicator, children }) => {
 
   const props = {
     isLoading,
-    error,
+    isError,
     data: byYears,
   };
 

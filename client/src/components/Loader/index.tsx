@@ -1,6 +1,20 @@
-import { Center, CenterProps } from '@chakra-ui/react';
+import { Center, Spinner, CenterProps, SpinnerProps } from '@chakra-ui/react';
 import { FC } from 'react';
 
-export const Loader: FC<CenterProps> = ({ ...props }) => (
-  <Center {...props}>Loading...</Center>
+type LoaderProps = {
+  spinner?: SpinnerProps;
+  container?: CenterProps;
+};
+
+export const Loader: FC<LoaderProps> = ({ spinner, container }) => (
+  <Center {...container}>
+    <Spinner
+      thickness="4px"
+      speed="0.65s"
+      emptyColor="gray.200"
+      color="blue.300"
+      size="lg"
+      {...spinner}
+    />
+  </Center>
 );

@@ -1,14 +1,16 @@
 import { Fetch } from '../../../Fetch';
-import { Action, ChartYear, Paper } from '../../../../../../components';
+import { Action, Loader, Paper } from '../../../../../../components';
 import { Table as GeneralTable } from '../../../../../../components/Table';
-import { Center } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 
-export const Table = ({ indicator }) => {
+export const Table = ({ indicator, unit }) => {
+  const { t } = useTranslation();
+
   return (
     <Fetch country={'all'} indicator={indicator}>
       {({ data, isLoading, error }) => {
         if (isLoading) {
-          return <Center minH={'400px'}>loading...</Center>;
+          return <Loader container={{ minH: '400px' }} />;
         }
 
         if (error) {
@@ -19,12 +21,16 @@ export const Table = ({ indicator }) => {
           {
             id: 'countryiso3code',
             accessorKey: 'countryiso3code',
-            header: <Action>countryiso3code</Action>,
+            header: <Action>{t('economy.table.country')}</Action>,
           },
           {
             id: 'value',
             accessorKey: 'value',
-            header: <Action>value</Action>,
+            header: (
+              <Action>
+                {t('economy.table.value')}, ({unit})
+              </Action>
+            ),
             align: 'right',
           },
         ];

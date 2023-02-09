@@ -1,4 +1,4 @@
-import { Loader, Title } from '../../components';
+import { Loader, Title, Error } from '../../components';
 import { CorruptionView } from './CorruptionView';
 // import { GET_CORRUPTION } from './queries';
 import { useTranslation } from 'react-i18next';
@@ -6,19 +6,20 @@ import { useQuery } from 'react-query';
 import React from 'react';
 import { API } from '../../constants';
 import { Box } from '@chakra-ui/react';
+import axios from 'axios';
 
 export const Corruption = () => {
   const { t } = useTranslation();
-  const { isLoading, error, data } = useQuery('corruption', () =>
-    fetch(`${API}/corruption`).then((res) => res.json())
+  const { isLoading, isError, data } = useQuery('corruption', () =>
+    axios(`${API}/corruption`).then((res) => res.data)
   );
 
   if (isLoading) {
     return <Loader />;
   }
 
-  if (error) {
-    return <div>Error.</div>;
+  if (isError) {
+    return <Error />;
   }
 
   return (

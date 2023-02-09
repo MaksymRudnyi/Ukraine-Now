@@ -1,10 +1,11 @@
 import { Fetch } from '../../../Fetch';
-import { ChartYear, Paper } from '../../../../../../components';
+import { ChartYear, Loader } from '../../../../../../components';
 import { useState, useEffect } from 'react';
-import { Center } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 
 export const Chart = ({ indicator, country, unit, title }) => {
   const [indicatorChanged, setIndicatorChanged] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setIndicatorChanged(true);
@@ -14,17 +15,13 @@ export const Chart = ({ indicator, country, unit, title }) => {
   }, [indicator]);
 
   if (indicatorChanged) {
-    return (
-      <Center minH={'400px'}>
-        <div>Loading</div>
-      </Center>
-    );
+    return <Loader container={{ minH: '400px' }} />;
   }
   return (
     <Fetch country={country} indicator={indicator}>
       {({ data, isLoading, error }) => {
         const countrySeries = {
-          name: 'economy.ukraine',
+          name: t('ukraine'),
           data: data.map((item) => ({
             x: +item.date,
             y: +item.value.toFixed(2),
