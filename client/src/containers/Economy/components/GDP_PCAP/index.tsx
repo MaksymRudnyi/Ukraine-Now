@@ -4,6 +4,7 @@ import { useEffect, useMemo } from 'react';
 import { Box } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
+import { WORLD_BANK_INDICATOR } from '../../constants';
 
 // Source: https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?end=2021&locations=UA&start=1987&view=chart
 
@@ -29,6 +30,7 @@ export const GDPperCapita = ({ onData }) => {
       title,
       unit: '$',
       data: gdpPerCapByYears,
+      indicator: WORLD_BANK_INDICATOR.GDP_PER_CAPITA,
     });
   };
 

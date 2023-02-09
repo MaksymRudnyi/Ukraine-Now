@@ -5,3 +5,4 @@ export * from './Unemployment';
 export * from './GDPGrowth';
 
 export * from './ComparingView';
+export * from './Compare';

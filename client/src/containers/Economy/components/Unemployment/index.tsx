@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { Box } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
+import { WORLD_BANK_INDICATOR } from '../../constants';
 
 // Source: https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=UA
 
@@ -37,6 +38,7 @@ export const Unemployment = ({ onData }) => {
       title,
       unit: '%',
       data: byYears,
+      indicator: WORLD_BANK_INDICATOR.UNEMPLOYMENT,
     });
   };
 

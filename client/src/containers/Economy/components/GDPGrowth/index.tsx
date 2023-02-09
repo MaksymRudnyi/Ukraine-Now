@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { Box } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
+import { WORLD_BANK_INDICATOR } from '../../constants';
 
 // Source: https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=UA
 
@@ -37,6 +38,7 @@ export const GDPGrowth = ({ onData }) => {
       title,
       unit: '%',
       data: gdpByYears,
+      indicator: WORLD_BANK_INDICATOR.GDP_GROWTH,
     });
   };
 

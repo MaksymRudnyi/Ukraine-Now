@@ -2,6 +2,7 @@ import { Title } from '../../components';
 import { useTranslation } from 'react-i18next';
 import { Grid, GridItem, Box } from '@chakra-ui/react';
 import { useState } from 'react';
+import { WORLD_BANK_INDICATOR } from './constants';
 
 import {
   GDPperCapita,
@@ -10,6 +11,7 @@ import {
   Unemployment,
   GDPGrowth,
   ComparingView,
+  Compare,
 } from './components';
 
 export const Economy = () => {
@@ -17,9 +19,13 @@ export const Economy = () => {
   const [series, setSeries] = useState();
   const [title, setTitle] = useState('');
   const [unit, setUnit] = useState('');
+  const [indicator, setIndicator] = useState(
+    WORLD_BANK_INDICATOR.GDP_PER_CAPITA
+  );
 
-  const onData = ({ title, unit, data }) => {
+  const onData = ({ title, unit, data, indicator }) => {
     setSeries(undefined);
+    setIndicator(indicator || WORLD_BANK_INDICATOR.GDP_PER_CAPITA); // TODO check to remove OR
 
     const series = {
       name: t('economy.ukraine'),
@@ -66,9 +72,10 @@ export const Economy = () => {
         </GridItem>
       </Grid>
 
-      {series ? (
-        <ComparingView data={series} title={title} unit={unit} />
-      ) : null}
+      {/*{series ? (*/}
+      {/*  <ComparingView data={series} title={title} unit={unit} />*/}
+      {/*) : null}*/}
+      <Compare indicator={indicator} unit={unit} title={title} />
     </Box>
   );
 };

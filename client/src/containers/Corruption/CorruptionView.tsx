@@ -18,8 +18,8 @@ export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
     .filter(({ iso3 }) => iso3 === UKRAINE_ISO)
     .sort((a, b) => b.year! - a.year!);
   const comparedCountry = corruption
-    .filter(({ iso3 }) => iso3 === compareCountry)
-    .sort((a, b) => b.year! - a.year!);
+    ?.filter(({ iso3 }) => iso3 === compareCountry)
+    ?.sort((a, b) => b.year! - a.year!);
 
   const ukraineThisYear = ukraine[0];
 
