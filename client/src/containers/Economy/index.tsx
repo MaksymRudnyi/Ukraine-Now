@@ -10,7 +10,6 @@ import {
   Inflation,
   Unemployment,
   GDPGrowth,
-  ComparingView,
   Compare,
 } from './components';
 

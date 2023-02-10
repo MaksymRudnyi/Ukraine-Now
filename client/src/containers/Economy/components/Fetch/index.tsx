@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import { WORLD_BANK_INDICATOR } from '../../constants';
 
 export const Fetch = ({ country, indicator, children }) => {
   const { isLoading, isError, data } = useQuery(indicator + country, () =>
@@ -16,7 +17,12 @@ export const Fetch = ({ country, indicator, children }) => {
       return [];
     }
 
-    return data[1].filter((item) => item.value);
+    let clearData = data[1].filter((item) => item.value);
+    if (indicator === WORLD_BANK_INDICATOR.INFLATION) {
+      clearData = clearData.filter((item) => item.date > 1995);
+    }
+
+    return clearData;
   }, [data]);
 
   const props = {

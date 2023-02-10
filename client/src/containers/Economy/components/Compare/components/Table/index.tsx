@@ -31,7 +31,7 @@ export const Table = ({ indicator, unit }) => {
                 {t('economy.table.value')}, ({unit})
               </Action>
             ),
-            align: 'right',
+            cell: (info) => info.getValue()?.toFixed(2),
           },
         ];
 
