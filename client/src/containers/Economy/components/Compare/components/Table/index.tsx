@@ -2,9 +2,19 @@ import { Fetch } from '../../../Fetch';
 import { Action, Loader, Paper } from '../../../../../../components';
 import { Table as GeneralTable } from '../../../../../../components/Table';
 import { useTranslation } from 'react-i18next';
+import { observer } from 'mobx-react-lite';
+import { FC } from 'react';
+import store from '../../../../../../store';
+import { UKRAINE_ISO } from '../../../../../../constants';
 
-export const Table = ({ indicator, unit }) => {
+type TableProps = {
+  indicator: string;
+  unit: string;
+};
+
+export const Table: FC<TableProps> = observer(({ indicator, unit }) => {
   const { t } = useTranslation();
+  const { countries } = store.UI;
 
   return (
     <Fetch country={'all'} indicator={indicator}>
@@ -17,11 +27,23 @@ export const Table = ({ indicator, unit }) => {
           return 'error';
         }
 
+        const selectedFn = (row) => {
+          return row.countryiso3code === UKRAINE_ISO;
+        };
+
         const columns = [
           {
             id: 'countryiso3code',
             accessorKey: 'countryiso3code',
             header: <Action>{t('economy.table.country')}</Action>,
+            cell: (info) => {
+              const country = info.getValue()?.toLowerCase();
+              return (
+                countries[country] ||
+                info?.row?.original?.country?.value ||
+                country
+              );
+            },
           },
           {
             id: 'value',
@@ -37,10 +59,14 @@ export const Table = ({ indicator, unit }) => {
 
         return (
           <Paper>
-            <GeneralTable data={data} columns={columns} />
+            <GeneralTable
+              data={data}
+              columns={columns}
+              selectedFn={selectedFn}
+            />
           </Paper>
         );
       }}
     </Fetch>
   );
-};
+});
