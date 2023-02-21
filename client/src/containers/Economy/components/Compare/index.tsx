@@ -9,10 +9,10 @@ export const Compare = ({ indicator, unit, title }) => {
       gap={4}
       mb={4}
     >
-      <GridItem colSpan={[4]} overflow={'hidden'}>
+      <GridItem colSpan={[1, 1, 4]} overflow={'hidden'}>
         <Chart indicator={indicator} country={'ua'} unit={unit} title={title} />
       </GridItem>
-      <GridItem colSpan={[2]} overflow={'hidden'}>
+      <GridItem colSpan={[1, 1, 2]} overflow={'hidden'}>
         <Table indicator={indicator} unit={unit} />
       </GridItem>
     </Grid>
