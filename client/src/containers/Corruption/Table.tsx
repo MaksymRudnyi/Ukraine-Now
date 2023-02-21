@@ -4,6 +4,7 @@ import { UKRAINE_ISO } from '../../constants';
 import { observer } from 'mobx-react-lite';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import store from '../../store';
 
 type CurruptionTableProps = {
   corruption;
@@ -13,6 +14,7 @@ type CurruptionTableProps = {
 export const CorruptionTable: FC<CurruptionTableProps> = observer(
   ({ corruption, onRowClick }) => {
     const { t } = useTranslation();
+    const { countries } = store.UI;
 
     const columns = [
       {
@@ -22,10 +24,13 @@ export const CorruptionTable: FC<CurruptionTableProps> = observer(
         size: 58,
       },
       {
-        id: 'country',
-        accessorKey: 'country',
+        id: 'iso3',
+        accessorKey: 'iso3',
         header: <Action>{t('corruption.country')}</Action>,
-        cell: (info) => info.getValue(),
+        cell: (info) => {
+          const country = info.getValue()?.toLowerCase();
+          return countries[country] || info?.row?.original?.country || country;
+        },
         align: 'right',
       },
       {

@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { CorruptionModule } from './modules/Corruption/corruption.module';
 import { CurrencyModule } from './modules/Currency/currency.module';
 import { WarModule } from './modules/War/war.module';
+import { CountiesModule } from './modules/Counties/counties.module';
 import { AppCheckMiddleware } from './middlewares/AppCheck';
 
 @Module({
@@ -10,6 +11,7 @@ import { AppCheckMiddleware } from './middlewares/AppCheck';
     CurrencyModule,
     CorruptionModule,
     WarModule,
+    CountiesModule,
     ConfigModule.forRoot({
       envFilePath:
         process.env.NODE_ENV === 'development'
