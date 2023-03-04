@@ -45,6 +45,7 @@ Runs Storybook for components development. Default port is :6006
 - [i18next](https://www.i18next.com/) - an internationalization-framework to support English and Ukrainian languages
 - [react-helmet](https://www.npmjs.com/package/react-helmet) - manage all of your changes to the document head (add page title, description, meta tags)
 - [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/) - Unit tests
+- [Prettier](https://prettier.io/) - code formatter
 
 ## Before run application
 

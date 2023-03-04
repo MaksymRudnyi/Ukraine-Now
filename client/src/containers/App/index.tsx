@@ -1,5 +1,4 @@
 import { Router } from '..';
-import { ApolloProvider } from '../../components';
 import { useHighchartsTranslations } from '../../hooks/useHighchartsTranslations';
 import theme from '../../theme';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -14,13 +13,11 @@ export const App = () => {
 
   return (
     <HelmetProvider>
-      <ApolloProvider>
-        <QueryClientProvider client={queryClient}>
-          <ChakraProvider theme={theme}>
-            <Router />
-          </ChakraProvider>
-        </QueryClientProvider>
-      </ApolloProvider>
+      <QueryClientProvider client={queryClient}>
+        <ChakraProvider theme={theme}>
+          <Router />
+        </ChakraProvider>
+      </QueryClientProvider>
     </HelmetProvider>
   );
 };
