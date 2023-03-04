@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.7.1",
     "@chakra-ui/icons": "^2.0.12",
     "@chakra-ui/react": "^2.4.1",
     "@emotion/react": "^11.10.5",
@@ -21,7 +20,6 @@
     "axios": "^1.2.0",
     "firebase": "^9.15.0",
     "framer-motion": "^7.6.7",
-    "graphql": "15.5.3",
     "hamburger-react": "^2.5.0",
     "highcharts": "^10.3.2",
     "highcharts-react-official": "^3.1.0",
@@ -54,8 +52,6 @@
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "scriptname": "cmd",
-    "codegen": "graphql-codegen --config codegen.ts",
-    "gen:types": "apollo client:codegen --target typescript --includes **/queries.tsx --excludes **/__generated__ --endpoint=http://127.0.0.1:5001/ukraine-now/us-central1/api/graphql",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
