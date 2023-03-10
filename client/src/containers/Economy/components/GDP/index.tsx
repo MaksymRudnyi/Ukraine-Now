@@ -19,6 +19,26 @@ export const GDP = ({ onData }) => {
     });
   };
 
+  const changeNumberFormat = (val) => {
+    
+    // Nine Zeroes for Billions
+    const changedNum =  Math.abs(Number(val)) >= 1.0e+9
+
+    ? (Math.abs(Number(val)) / 1.0e+9).toFixed(2) + " billion"
+    // Six Zeroes for Millions 
+    : Math.abs(Number(val)) >= 1.0e+6
+
+    ? (Math.abs(Number(val)) / 1.0e+6).toFixed(2) + " million"
+    // Three Zeroes for Thousands
+    : Math.abs(Number(val)) >= 1.0e+3
+
+    ? (Math.abs(Number(val)) / 1.0e+3).toFixed(2) + " thousands"
+
+    : Math.abs(Number(val));
+    return changedNum;
+
+  }
+
   return (
     <Fetch country={'ua'} indicator={WORLD_BANK_INDICATOR.GDP}>
       {({ data, isLoading, isError }) => {
@@ -33,7 +53,9 @@ export const GDP = ({ onData }) => {
         return (
           <Box cursor={'pointer'} height={'100%'} onClick={onClick}>
             <Card
-              value={<Action>{`$${data[0]?.value?.toFixed(2)}`}</Action>}
+              // value={<Action>{`$${data[0]?.value?.toFixed(2)}`}</Action>}
+              // changeNumberFormat(data[0])
+              value={<Action>{`${changeNumberFormat(data[0].value)}`}</Action>}
               title={title}
               helpText={t('economy.year', { year: data[0].date })}
             />
