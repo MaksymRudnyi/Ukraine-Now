@@ -97,9 +97,9 @@
     "source": "Source: <a href='https://bank.gov.ua/en' target='_blank'>National Bank of Ukraine</a>"
   },
   "numbers_thousandth": {
-    "thousand": "thousand",
-    "million": "million",
-    "billion": "billion"
+    "thousand": "{{number}} thousand",
+    "million": "{{number}} million",
+    "billion": "{{number}} billion"
   },
   "corruption": {
     "country": "Country",
