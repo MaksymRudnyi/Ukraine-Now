@@ -96,6 +96,11 @@
     "x_axios_name": "{{currency}} (per 1 unit)",
     "source": "Source: <a href='https://bank.gov.ua/en' target='_blank'>National Bank of Ukraine</a>"
   },
+  "numbers_thousandth": {
+    "thousand": "thousand",
+    "million": "million",
+    "billion": "billion"
+  },
   "corruption": {
     "country": "Country",
     "corruption_perceptions_index": "Corruption Perception Index",
