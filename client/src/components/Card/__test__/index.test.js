@@ -13,20 +13,21 @@ describe('Card', () => {
 
   });
 
+  
   it('should NOT render the help text', () => {
     const title = 'Test title';
     const value = 12;
 
-    render(<Card title={title} value={value} />);
-    expect(screen.getByTestId("helpText")).toBeNull();
+    const { queryByTestId } = render(<Card title={title} value={value} />);
+    expect(queryByTestId("helpText")).toBeNull();
   });
 
   
   it('should render the help text if provided', () => {
     const helpText = 'Test Help Text';
-    const { getByText } = render(<Card title="Test Title" value={null} helpText={helpText} />);
+    const { getByTestId } = render(<Card title="Test Title" value={null} helpText={helpText} />);
 
-    expect(getByText(helpText)).toBeInTheDocument();
+    expect(getByTestId("helpText")).toBeInTheDocument();
   });
 });
 
