@@ -5,7 +5,7 @@ import { Card } from '../index';
 describe('Card', () => {
   it('should render the title and value', () => {
     const title = 'Test title';
-    const value = 42;
+    const value = 12;
   
     const { getByText } = render(<Card title={title} value={value} />);
     expect(getByText(title)).toBeInTheDocument();
@@ -15,13 +15,10 @@ describe('Card', () => {
 
   it('should NOT render the help text', () => {
     const title = 'Test title';
-    const value = 42;
-    const helpText = 'Help text1';
+    const value = 12;
 
-    render(<Card title={title} value={value} helpText={helpText} />);
-  
-    const headingElement = screen.getByText(helpText);
-    expect(headingElement).not.toBeNull();
+    render(<Card title={title} value={value} />);
+    expect(screen.getByTestId("helpText")).toBeNull();
   });
 
   
