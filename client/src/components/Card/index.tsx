@@ -9,7 +9,7 @@ type CardProps = {
 };
 
 export const Card: FC<CardProps> = ({ value, helpText, title }) => (
-  <Paper p={2} height={'100%'}>
+  <Paper p={2} height={'100%'}  _hover={{borderColor: "gray.400"}}>
     <Stat>
       <StatLabel>{title}</StatLabel>
       <StatNumber>{value}</StatNumber>
