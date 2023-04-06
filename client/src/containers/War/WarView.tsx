@@ -39,7 +39,6 @@ export const WarView: FC<CorruptionViewProps> = ({ stats, increase }) => {
     },
     [selectedType]
   );
-
   return (
     <>
       <Grid
@@ -72,7 +71,7 @@ export const WarView: FC<CorruptionViewProps> = ({ stats, increase }) => {
               onClick={() => onCardClick(item[0])}
             >
               <Box cursor={'pointer'}>
-                <Card value={value} title={title} />
+                <Card value={value} title={title} isActive={selectedType === item[0]} />
               </Box>
             </GridItem>
           );

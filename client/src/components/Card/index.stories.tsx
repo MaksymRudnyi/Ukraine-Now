@@ -18,3 +18,11 @@ ComplexCard.args = {
     value: <h1>$20000</h1>,
     title: <b>GDP</b>
 }
+
+export const ActiveCard = Template.bind({})
+ActiveCard.args = {
+    value: <h1>$20000</h1>,
+    title: <b>GDP</b>,
+    isActive: true
+}
+
