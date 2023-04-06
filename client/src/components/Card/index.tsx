@@ -13,7 +13,7 @@ export const Card: FC<CardProps> = ({ value, helpText, title }) => (
     <Stat>
       <StatLabel>{title}</StatLabel>
       <StatNumber>{value}</StatNumber>
-      { helpText ? <StatHelpText>{helpText}</StatHelpText> : null}
+      { helpText ? <StatHelpText data-testid="helpText">{helpText}</StatHelpText> : null}
     </Stat>
   </Paper>
 );
