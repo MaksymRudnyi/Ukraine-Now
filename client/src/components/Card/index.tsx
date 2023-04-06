@@ -6,10 +6,11 @@ type CardProps = {
   value: ReactElement | string | number | null;
   title: ReactElement | string | number | null;
   helpText?: string | null;
+  isActive?: boolean;
 };
 
-export const Card: FC<CardProps> = ({ value, helpText, title }) => (
-  <Paper p={2} height={'100%'}  _hover={{borderColor: "gray.400"}}>
+export const Card: FC<CardProps> = ({ value, helpText, title, isActive = false }) => (
+  <Paper p={2} height={'100%'}  _hover={{borderColor: "gray.400"}} borderColor={ isActive ? "gray.800": "gray.200" }>
     <Stat>
       <StatLabel>{title}</StatLabel>
       <StatNumber>{value}</StatNumber>
