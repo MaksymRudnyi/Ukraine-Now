@@ -10,16 +10,17 @@ type CorruptionViewProps = {
   corruption;
 };
 
-const CORRUPTION_INDEX_IDS = {
-  "CORRUPTION_RATING": "0",
-  "CORRUPTION_POSITION": "1"
-};
+enum CORRUPTION_INDEX {
+  SCORE,
+  RANK
+  };
+
 
 export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
   const { t } = useTranslation();
   const [isScoreActive, setIsScoreActive] = useState(true);
   const [compareCountry, setCompareCountry] = useState('');
-  const [selectedId, setSelectedId] = useState('');
+  const [selectedId, setSelectedId] = useState(0);
 
   const ukraine = corruption
     .filter(({ iso3 }) => iso3 === UKRAINE_ISO)
@@ -58,6 +59,11 @@ export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
     setCompareCountry(row.iso3 === compareCountry ? '' : row.iso3);
   };
 
+  const onActiveStateHandler = (corruption_index) => {
+    setIsScoreActive(false); 
+    setSelectedId(corruption_index);
+  };
+
   return (
     <Grid
       templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']}
@@ -65,19 +71,19 @@ export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
       mb={4}
     >
       <GridItem w="100%">
-        <Box mb={4} cursor={'pointer'}  onClick={() => {setIsScoreActive(false); setSelectedId(CORRUPTION_INDEX_IDS["CORRUPTION_RATING"]); }}>
+        <Box mb={4} cursor={'pointer'}  onClick={() => { return onActiveStateHandler(CORRUPTION_INDEX.SCORE); }} >
           <Card // TODO calculate the total number of countires instead of 180
             value={<Action>{`${ukraineThisYear.rank} / 180`}</Action>}
             title={t('corruption.rank')}
-            isActive={selectedId === CORRUPTION_INDEX_IDS["CORRUPTION_RATING"]}
+            isActive={selectedId === (CORRUPTION_INDEX.SCORE)}
           />
         </Box>
 
-        <Box cursor={'pointer'}  onClick={() => {setIsScoreActive(false); setSelectedId(CORRUPTION_INDEX_IDS["CORRUPTION_POSITION"]); }}>
+        <Box cursor={'pointer'}  onClick={() => { onActiveStateHandler(CORRUPTION_INDEX.RANK); }}>
           <Card
             value={<Action>{`${ukraineThisYear.score} / 100`}</Action>}
             title={t('corruption.score')}
-            isActive={selectedId === CORRUPTION_INDEX_IDS["CORRUPTION_POSITION"]}
+            isActive={selectedId === (CORRUPTION_INDEX.RANK)}
           />
         </Box>
       </GridItem>
