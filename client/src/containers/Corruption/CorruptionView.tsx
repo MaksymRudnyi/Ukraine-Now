@@ -10,10 +10,17 @@ type CorruptionViewProps = {
   corruption;
 };
 
+const CORRUPTION_INDEX_IDS = {
+  "CORRUPTION_RATING": "0",
+  "CORRUPTION_POSITION": "1"
+};
+
 export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
   const { t } = useTranslation();
   const [isScoreActive, setIsScoreActive] = useState(true);
   const [compareCountry, setCompareCountry] = useState('');
+  const [selectedId, setSelectedId] = useState('');
+
   const ukraine = corruption
     .filter(({ iso3 }) => iso3 === UKRAINE_ISO)
     .sort((a, b) => b.year! - a.year!);
@@ -57,18 +64,20 @@ export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
       gap={4}
       mb={4}
     >
-      <GridItem w="100%" onClick={() => setIsScoreActive(false)}>
-        <Box mb={4} cursor={'pointer'}>
+      <GridItem w="100%">
+        <Box mb={4} cursor={'pointer'}  onClick={() => {setIsScoreActive(false); setSelectedId(CORRUPTION_INDEX_IDS["CORRUPTION_RATING"]); }}>
           <Card // TODO calculate the total number of countires instead of 180
             value={<Action>{`${ukraineThisYear.rank} / 180`}</Action>}
             title={t('corruption.rank')}
+            isActive={selectedId === CORRUPTION_INDEX_IDS["CORRUPTION_RATING"]}
           />
         </Box>
 
-        <Box cursor={'pointer'}>
+        <Box cursor={'pointer'}  onClick={() => {setIsScoreActive(false); setSelectedId(CORRUPTION_INDEX_IDS["CORRUPTION_POSITION"]); }}>
           <Card
             value={<Action>{`${ukraineThisYear.score} / 100`}</Action>}
             title={t('corruption.score')}
+            isActive={selectedId === CORRUPTION_INDEX_IDS["CORRUPTION_POSITION"]}
           />
         </Box>
       </GridItem>
