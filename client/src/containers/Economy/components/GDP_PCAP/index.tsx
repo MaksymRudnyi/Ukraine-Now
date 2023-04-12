@@ -15,7 +15,7 @@ export const GDPperCapita = ({ onData, isActive }) => {
     onData({
       title,
       unit: '$',
-      indicator:'myindicator',
+      indicator: WORLD_BANK_INDICATOR.GDP_PER_CAPITA,
     });
   
   };

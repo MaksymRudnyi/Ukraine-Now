@@ -26,10 +26,9 @@ export const Economy = () => {
     setTitle(title);
     setUnit(unit);
   };
-  
-  const isElementActive = (el:string) => {
-    return el === indicator;
-  }
+
+ const isCardActive = (cardName:string) => cardName === indicator;
+
   return (
     <Box id={'economy'} mb={4}>
       <Title>{t('economy.title')}</Title>
@@ -45,19 +44,19 @@ export const Economy = () => {
         mb={4}
       >
         <GridItem>
-          <GDPperCapita onData={onData} isActive={ isElementActive(WORLD_BANK_INDICATOR.GDP_PER_CAPITA)}/>
+          <GDPperCapita onData={onData} isActive={ isCardActive(WORLD_BANK_INDICATOR.GDP_PER_CAPITA)}/>
         </GridItem >
         <GridItem>
-          <GDP onData={onData}  isActive={ isElementActive(WORLD_BANK_INDICATOR.GDP)}/>
+          <GDP onData={onData}  isActive={ isCardActive(WORLD_BANK_INDICATOR.GDP)}/>
         </GridItem>
         <GridItem >
-          <GDPGrowth onData={onData} isActive={isElementActive(WORLD_BANK_INDICATOR.GDP_GROWTH)} />
+          <GDPGrowth onData={onData} isActive={isCardActive(WORLD_BANK_INDICATOR.GDP_GROWTH)} />
         </GridItem>
         <GridItem>
-          <Inflation onData={onData} isActive={ isElementActive(WORLD_BANK_INDICATOR.INFLATION)}  />
+          <Inflation onData={onData} isActive={ isCardActive(WORLD_BANK_INDICATOR.INFLATION)}  />
         </GridItem>
         <GridItem>
-          <Unemployment onData={onData} isActive={ isElementActive(WORLD_BANK_INDICATOR.UNEMPLOYMENT)} />
+          <Unemployment onData={onData} isActive={ isCardActive(WORLD_BANK_INDICATOR.UNEMPLOYMENT)} />
         </GridItem>
       </Grid>
 
