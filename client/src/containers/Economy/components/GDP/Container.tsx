@@ -3,7 +3,7 @@ import { Card, Action } from "../../../../components";
 import { useNumThousands } from "../../../../hooks/useNumThousands";
 import { useTranslation } from "react-i18next"; 
 
-export const Container = ({ data, title, onClick}) => {
+export const Container = ({ data, title, onClick, isActive}) => {
     const { t} = useTranslation();
     const value = useNumThousands(data[0]?.value)
 
@@ -15,6 +15,7 @@ export const Container = ({ data, title, onClick}) => {
               value={<Action>{value}</Action>}
               title={title}
               helpText={t('economy.year', { year: data[0].date })}
+              isActive={isActive}
             />
           </Box>
     )

@@ -12,7 +12,7 @@ import { Container } from './Container';
 //   return formattedValue;
 // };
 
-export const GDP = ({ onData }) => {
+export const GDP = ({ onData, isActive }) => {
   const { t } = useTranslation();
   const title = t('economy.GDP');
  
@@ -39,7 +39,7 @@ export const GDP = ({ onData }) => {
         }
 
         return (
-          <Container data={data} title={title} onClick={onClick}/>
+          <Container data={data} title={title} onClick={onClick} isActive={isActive}/>
         );
       }}
     </Fetch>

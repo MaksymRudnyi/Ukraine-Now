@@ -7,7 +7,7 @@ import { Fetch } from '../Fetch';
 
 // Source: https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?end=2021&locations=UA&start=1987&view=chart
 
-export const GDPperCapita = ({ onData }) => {
+export const GDPperCapita = ({ onData, isActive }) => {
   const { t } = useTranslation();
   const title = t('economy.GDP_per_capita');
 
@@ -17,6 +17,7 @@ export const GDPperCapita = ({ onData }) => {
       unit: '$',
       indicator: WORLD_BANK_INDICATOR.GDP_PER_CAPITA,
     });
+  
   };
 
   return (
@@ -29,13 +30,14 @@ export const GDPperCapita = ({ onData }) => {
         if (isError) {
           return <Error />;
         }
-
+       
         return (
           <Box cursor={'pointer'} height={'100%'} onClick={onClick}>
             <Card
               value={<Action>{`$${data[0]?.value?.toFixed(2)}`}</Action>}
               title={title}
               helpText={t('economy.year', { year: data[0].date })}
+              isActive={isActive}
             />
           </Box>
         );

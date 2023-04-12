@@ -7,7 +7,7 @@ import { Fetch } from '../Fetch';
 
 // Source: https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=UA
 
-export const Inflation = ({ onData }) => {
+export const Inflation = ({ onData, isActive }) => {
   const { t } = useTranslation();
   const title = t('economy.inflation');
 
@@ -36,6 +36,7 @@ export const Inflation = ({ onData }) => {
               value={<Action>{`${data[0]?.value?.toFixed(2)}%`}</Action>}
               title={title}
               helpText={t('economy.year', { year: data[0].date })}
+              isActive={isActive}
             />
           </Box>
         );
