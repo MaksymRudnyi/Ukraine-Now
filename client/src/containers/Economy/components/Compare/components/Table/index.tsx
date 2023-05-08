@@ -6,6 +6,7 @@ import { observer } from 'mobx-react-lite';
 import { FC } from 'react';
 import store from '../../../../../../store';
 import { UKRAINE_ISO } from '../../../../../../constants';
+import { couldStartTrivia } from 'typescript';
 
 type TableProps = {
   indicator: string;
@@ -19,6 +20,9 @@ export const Table: FC<TableProps> = observer(({ indicator, unit }) => {
   return (
     <Fetch country={'all'} indicator={indicator}>
       {({ data, isLoading, error }) => {
+        const countriesAll =  JSON.parse(JSON.stringify(countries));
+        const dataFiltered = data.filter(obj => obj.countryiso3code.toLowerCase() in countriesAll);
+       
         if (isLoading) {
           return <Loader container={{ minH: '400px' }} />;
         }
@@ -60,7 +64,7 @@ export const Table: FC<TableProps> = observer(({ indicator, unit }) => {
         return (
           <Paper>
             <GeneralTable
-              data={data}
+              data={dataFiltered}
               columns={columns}
               selectedFn={selectedFn}
             />
