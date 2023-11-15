@@ -10,7 +10,7 @@ type CardProps = {
 };
 
 export const Card: FC<CardProps> = ({ value, helpText, title, isActive = false }) => (
-  <Paper p={2} height={'100%'}  _hover={{borderColor: "gray.400"}} borderColor={ isActive ? "gray.800": "gray.200" }>
+  <Paper p={2} height={'100%'}  _hover={{borderColor: "gray.400"}} borderColor={ isActive ? "gray.800": "gray.200" } _active={{borderColor: "gray.800"}}>
     <Stat>
       <StatLabel>{title}</StatLabel>
       <StatNumber>{value}</StatNumber>

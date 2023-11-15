@@ -9,11 +9,18 @@ import { useTranslation } from 'react-i18next';
 type CorruptionViewProps = {
   corruption;
 };
+enum CORRUPTION_INDEX {
+  SCORE,
+  RANK
+  };
+
 
 export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
   const { t } = useTranslation();
   const [isScoreActive, setIsScoreActive] = useState(true);
   const [compareCountry, setCompareCountry] = useState('');
+  const [selectedId, setSelectedId] = useState<CORRUPTION_INDEX>(CORRUPTION_INDEX.SCORE);
+
   const ukraine = corruption
     .filter(({ iso3 }) => iso3 === UKRAINE_ISO)
     .sort((a, b) => b.year! - a.year!);
@@ -51,24 +58,31 @@ export const CorruptionView: FC<CorruptionViewProps> = ({ corruption }) => {
     setCompareCountry(row.iso3 === compareCountry ? '' : row.iso3);
   };
 
+  const onActiveStateHandler = (corruption_index: CORRUPTION_INDEX) => {
+    setIsScoreActive(false); 
+    setSelectedId(corruption_index);
+  };
+
   return (
     <Grid
       templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']}
       gap={4}
       mb={4}
     >
-      <GridItem w="100%" onClick={() => setIsScoreActive(false)}>
-        <Box mb={4} cursor={'pointer'}>
+      <GridItem w="100%">
+        <Box mb={4} cursor={'pointer'}  onClick={() => onActiveStateHandler(CORRUPTION_INDEX.SCORE)} >
           <Card // TODO calculate the total number of countires instead of 180
             value={<Action>{`${ukraineThisYear.rank} / 180`}</Action>}
             title={t('corruption.rank')}
+            isActive={selectedId === (CORRUPTION_INDEX.SCORE)}
           />
         </Box>
 
-        <Box cursor={'pointer'}>
+        <Box cursor={'pointer'}  onClick={() => onActiveStateHandler(CORRUPTION_INDEX.RANK)}>
           <Card
             value={<Action>{`${ukraineThisYear.score} / 100`}</Action>}
             title={t('corruption.score')}
+            isActive={selectedId === (CORRUPTION_INDEX.RANK)}
           />
         </Box>
       </GridItem>
